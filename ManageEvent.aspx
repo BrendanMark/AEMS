@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ManageEvent.aspx.cs" Inherits="AEMS.ManageReport" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ManageEvent.aspx.cs" %>
 <!DOCTYPE html>
 <%--stylesheet for adding panel dynamically--%>
 
