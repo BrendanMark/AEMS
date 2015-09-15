@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{42A08368-6A76-45AD-AEC5-93C4700DCAE4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AEMS</RootNamespace>
+    <AssemblyName>AEMS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bootstrap-3.3.5-dist\css\bootstrap-theme.css" />
+    <Content Include="bootstrap-3.3.5-dist\css\bootstrap-theme.min.css" />
+    <Content Include="bootstrap-3.3.5-dist\css\bootstrap.css" />
+    <Content Include="bootstrap-3.3.5-dist\css\bootstrap.min.css" />
+    <Content Include="bootstrap-3.3.5-dist\js\bootstrap.js" />
+    <Content Include="bootstrap-3.3.5-dist\js\bootstrap.min.js" />
+    <Content Include="bootstrap-3.3.5-dist\js\npm.js" />
+    <Content Include="BootstrapPickerMaster\dist\css\bootstrap-formhelpers.css" />
+    <Content Include="BootstrapPickerMaster\dist\css\bootstrap-formhelpers.min.css" />
+    <Content Include="BootstrapPickerMaster\dist\img\bootstrap-formhelpers-countries.flags-LICENSE.txt" />
+    <Content Include="BootstrapPickerMaster\dist\img\bootstrap-formhelpers-countries.flags.png" />
+    <Content Include="BootstrapPickerMaster\dist\img\bootstrap-formhelpers-currencies.flags.png" />
+    <Content Include="BootstrapPickerMaster\dist\img\bootstrap-formhelpers-googlefonts.png" />
+    <Content Include="BootstrapPickerMaster\dist\js\bootstrap-formhelpers.js" />
+    <Content Include="BootstrapPickerMaster\dist\js\bootstrap-formhelpers.min.js" />
+    <Content Include="BootstrapPickerMaster\Gruntfile.js" />
+    <Content Include="BootstrapPickerMaster\img\bootstrap-formhelpers-countries.flags-LICENSE.txt" />
+    <Content Include="BootstrapPickerMaster\img\bootstrap-formhelpers-countries.flags.png" />
+    <Content Include="BootstrapPickerMaster\img\bootstrap-formhelpers-currencies.flags.png" />
+    <Content Include="BootstrapPickerMaster\img\bootstrap-formhelpers-googlefonts.png" />
+    <Content Include="BootstrapPickerMaster\js\bootstrap-formhelpers-colorpicker.js" />
+    <Content Include="BootstrapPickerMaster\js\bootstrap-formhelpers-countries.js" />
+    <Content Include="BootstrapPickerMaster\js\bootstrap-formhelpers-currencies.js" />
+    <Content Include="BootstrapPickerMaster\js\bootstrap-formhelpers-datepicker.js" />
+    <Content Include="BootstrapPickerMaster\js\bootstrap-formhelpers-fonts.js" />
+    <Content Include="BootstrapPickerMaster\js\bootstrap-formhelpers-fontsizes.js" />
+    <Content Include="BootstrapPickerMaster\js\bootstrap-formhelpers-googlefonts.js" />
+    <Content Include="BootstrapPickerMaster\js\bootstrap-formhelpers-languages.js" />
+    <Content Include="BootstrapPickerMaster\js\bootstrap-formhelpers-number.js" />
+    <Content Include="BootstrapPickerMaster\js\bootstrap-formhelpers-phone.js" />
+    <Content Include="BootstrapPickerMaster\js\bootstrap-formhelpers-selectbox.js" />
+    <Content Include="BootstrapPickerMaster\js\bootstrap-formhelpers-slider.js" />
+    <Content Include="BootstrapPickerMaster\js\bootstrap-formhelpers-states.js" />
+    <Content Include="BootstrapPickerMaster\js\bootstrap-formhelpers-timepicker.js" />
+    <Content Include="BootstrapPickerMaster\js\bootstrap-formhelpers-timezones.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\ar\bootstrap-formhelpers-countries.ar.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\de_DE\bootstrap-formhelpers-countries.de_DE.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\en_US\bootstrap-formhelpers-countries.en_US.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\en_US\bootstrap-formhelpers-currencies.en_US.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\en_US\bootstrap-formhelpers-datepicker.en_US.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\en_US\bootstrap-formhelpers-fonts.en_US.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\en_US\bootstrap-formhelpers-fontsizes.en_US.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\en_US\bootstrap-formhelpers-googlefonts.en_US.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\en_US\bootstrap-formhelpers-languages.en_US.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\en_US\bootstrap-formhelpers-phone.en_US.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\en_US\bootstrap-formhelpers-states.en_US.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\en_US\bootstrap-formhelpers-timepicker.en_US.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\en_US\bootstrap-formhelpers-timezones.en_US.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\es_ES\bootstrap-formhelpers-countries.es_ES.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\es_ES\bootstrap-formhelpers-datepicker.es_ES.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\es_US\bootstrap-formhelpers-datepicker.es_US.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\it_IT\bootstrap-formhelpers-countries.it_IT.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\pt_BR\bootstrap-formhelpers-countries.pt_BR.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\ru_RU\bootstrap-formhelpers-countries.ru_RU.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\ru_RU\bootstrap-formhelpers-datepicker.ru_RU.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\zh_CN\bootstrap-formhelpers-countries.zh_CN.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\zh_CN\bootstrap-formhelpers-timezones.zh_CN.js" />
+    <Content Include="BootstrapPickerMaster\js\lang\zh_TW\bootstrap-formhelpers-countries.zh_TW.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\fixture.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\index.html" />
+    <Content Include="BootstrapPickerMaster\js\tests\unit\bootstrap-formhelpers-colorpicker.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\unit\bootstrap-formhelpers-countries.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\unit\bootstrap-formhelpers-currencies.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\unit\bootstrap-formhelpers-datepicker.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\unit\bootstrap-formhelpers-fonts.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\unit\bootstrap-formhelpers-fontsizes.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\unit\bootstrap-formhelpers-googlefonts.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\unit\bootstrap-formhelpers-languages.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\unit\bootstrap-formhelpers-number.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\unit\bootstrap-formhelpers-phone.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\unit\bootstrap-formhelpers-selectbox.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\unit\bootstrap-formhelpers-slider.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\unit\bootstrap-formhelpers-states.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\unit\bootstrap-formhelpers-timepicker.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\unit\bootstrap-formhelpers-timezones.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\vendor\css\bootstrap-3.0.0.min.css" />
+    <Content Include="BootstrapPickerMaster\js\tests\vendor\css\qunit-1.12.0.css" />
+    <Content Include="BootstrapPickerMaster\js\tests\vendor\js\bootstrap-3.0.0.min.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\vendor\js\jquery-1.10.2.js" />
+    <Content Include="BootstrapPickerMaster\js\tests\vendor\js\qunit-1.12.0.js" />
+    <Content Include="BootstrapPickerMaster\karma.conf.js" />
+    <Content Include="components\bootstrap2\css\bootstrap-responsive.css" />
+    <Content Include="components\bootstrap2\css\bootstrap.css" />
+    <Content Include="components\bootstrap2\img\glyphicons-halflings-white.png" />
+    <Content Include="components\bootstrap2\img\glyphicons-halflings.png" />
+    <Content Include="components\bootstrap2\js\bootstrap.min.js" />
+    <Content Include="components\bootstrap3\css\bootstrap-theme.css" />
+    <Content Include="components\bootstrap3\css\bootstrap-theme.min.css" />
+    <Content Include="components\bootstrap3\css\bootstrap.css" />
+    <Content Include="components\bootstrap3\css\bootstrap.min.css" />
+    <Content Include="components\bootstrap3\js\bootstrap.js" />
+    <Content Include="components\bootstrap3\js\bootstrap.min.js" />
+    <Content Include="components\jquery\jquery.min.js" />
+    <Content Include="components\jstimezonedetect\jstz.js" />
+    <Content Include="components\jstimezonedetect\jstz.min.js" />
+    <Content Include="components\jstimezonedetect\LICENCE.txt" />
+    <Content Include="components\underscore\underscore-min.js" />
+    <Content Include="CreateEvent.aspx" />
+    <Content Include="CreateReport.aspx" />
+    <Content Include="css\calendar.css" />
+    <Content Include="css\calendar.min.css" />
+    <Content Include="Index.aspx" />
+    <Content Include="jquery-1.11.3.min.js" />
+    <Content Include="js\app.js" />
+    <Content Include="js\calendar.js" />
+    <Content Include="js\calendar.min.js" />
+    <Content Include="js\language\ar-SA.js" />
+    <Content Include="js\language\bg-BG.js" />
+    <Content Include="js\language\bs-BA.js" />
+    <Content Include="js\language\cs-CZ.js" />
+    <Content Include="js\language\da-DK.js" />
+    <Content Include="js\language\de-AT.js" />
+    <Content Include="js\language\de-DE.js" />
+    <Content Include="js\language\el-GR.js" />
+    <Content Include="js\language\es-CO.js" />
+    <Content Include="js\language\es-ES.js" />
+    <Content Include="js\language\es-MX.js" />
+    <Content Include="js\language\fi-FI.js" />
+    <Content Include="js\language\fr-FR.js" />
+    <Content Include="js\language\hr-HR.js" />
+    <Content Include="js\language\hu-HU.js" />
+    <Content Include="js\language\id-ID.js" />
+    <Content Include="js\language\it-IT.js" />
+    <Content Include="js\language\ja-JP.js" />
+    <Content Include="js\language\ko-KR.js" />
+    <Content Include="js\language\ms-MY.js" />
+    <Content Include="js\language\nl-NL.js" />
+    <Content Include="js\language\no-NO.js" />
+    <Content Include="js\language\pl-PL.js" />
+    <Content Include="js\language\pt-BR.js" />
+    <Content Include="js\language\ro-RO.js" />
+    <Content Include="js\language\ru-RU.js" />
+    <Content Include="js\language\sk-SR.js" />
+    <Content Include="js\language\sl-SL.js" />
+    <Content Include="js\language\sv-SE.js" />
+    <Content Include="js\language\template.js" />
+    <Content Include="js\language\th-TH.js" />
+    <Content Include="js\language\tr-TR.js" />
+    <Content Include="js\language\zh-CN.js" />
+    <Content Include="js\language\zh-TW.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="LOGO.PNG" />
+    <Content Include="ManageEvent.aspx" />
+    <Content Include="navigationBar.css" />
+    <Content Include="templeowl.png" />
+    <Content Include="TempleT.png" />
+    <Content Include="tmpls\day.html" />
+    <Content Include="tmpls\events-list.html" />
+    <Content Include="tmpls\modal.html" />
+    <Content Include="tmpls\month-day.html" />
+    <Content Include="tmpls\month.html" />
+    <Content Include="tmpls\week-days.html" />
+    <Content Include="tmpls\week.html" />
+    <Content Include="tmpls\year-month.html" />
+    <Content Include="tmpls\year.html" />
+    <Content Include="ViewEvent.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CreateEvent.aspx.cs">
+      <DependentUpon>CreateEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateEvent.aspx.designer.cs">
+      <DependentUpon>CreateEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateReport.aspx.cs">
+      <DependentUpon>CreateReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateReport.aspx.designer.cs">
+      <DependentUpon>CreateReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageEvent.aspx.cs">
+      <DependentUpon>ManageEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageEvent.aspx.designer.cs">
+      <DependentUpon>ManageEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewEvent.aspx.cs">
+      <DependentUpon>ViewEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewEvent.aspx.designer.cs">
+      <DependentUpon>ViewEvent.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BootstrapPickerMaster\.coveralls.yml" />
+    <Content Include="BootstrapPickerMaster\.gitignore" />
+    <Content Include="BootstrapPickerMaster\.travis.yml" />
+    <Content Include="BootstrapPickerMaster\bfh-colorpicker.jquery.json" />
+    <Content Include="BootstrapPickerMaster\bfh-country.jquery.json" />
+    <Content Include="BootstrapPickerMaster\bfh-currency.jquery.json" />
+    <Content Include="BootstrapPickerMaster\bfh-datepicker.jquery.json" />
+    <Content Include="BootstrapPickerMaster\bfh-font.jquery.json" />
+    <Content Include="BootstrapPickerMaster\bfh-fontsize.jquery.json" />
+    <Content Include="BootstrapPickerMaster\bfh-googlefont.jquery.json" />
+    <Content Include="BootstrapPickerMaster\bfh-language.jquery.json" />
+    <Content Include="BootstrapPickerMaster\bfh-number.jquery.json" />
+    <Content Include="BootstrapPickerMaster\bfh-phone.jquery.json" />
+    <Content Include="BootstrapPickerMaster\bfh-select.jquery.json" />
+    <Content Include="BootstrapPickerMaster\bfh-slider.jquery.json" />
+    <Content Include="BootstrapPickerMaster\bfh-state.jquery.json" />
+    <Content Include="BootstrapPickerMaster\bfh-timepicker.jquery.json" />
+    <Content Include="BootstrapPickerMaster\bfh-timezone.jquery.json" />
+    <Content Include="BootstrapPickerMaster\bower.json" />
+    <Content Include="BootstrapPickerMaster\composer.json" />
+    <Content Include="BootstrapPickerMaster\js\.jshintrc" />
+    <Content Include="BootstrapPickerMaster\js\tests\vendor\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="BootstrapPickerMaster\js\tests\vendor\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="BootstrapPickerMaster\js\tests\vendor\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="BootstrapPickerMaster\js\tests\vendor\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="BootstrapPickerMaster\less\bootstrap-formhelpers-colorpicker.less" />
+    <Content Include="BootstrapPickerMaster\less\bootstrap-formhelpers-datepicker.less" />
+    <Content Include="BootstrapPickerMaster\less\bootstrap-formhelpers-flags.less" />
+    <Content Include="BootstrapPickerMaster\less\bootstrap-formhelpers-googlefonts.less" />
+    <Content Include="BootstrapPickerMaster\less\bootstrap-formhelpers-mixins.less" />
+    <Content Include="BootstrapPickerMaster\less\bootstrap-formhelpers-number.less" />
+    <Content Include="BootstrapPickerMaster\less\bootstrap-formhelpers-selectbox.less" />
+    <Content Include="BootstrapPickerMaster\less\bootstrap-formhelpers-slider.less" />
+    <Content Include="BootstrapPickerMaster\less\bootstrap-formhelpers-timepicker.less" />
+    <Content Include="BootstrapPickerMaster\less\bootstrap-formhelpers-variables.less" />
+    <Content Include="BootstrapPickerMaster\less\bootstrap-formhelpers.less" />
+    <Content Include="BootstrapPickerMaster\package.json" />
+    <Content Include="BootstrapPickerMaster\README.md" />
+    <Content Include="bootstrap-3.3.5-dist\css\bootstrap-theme.css.map" />
+    <Content Include="bootstrap-3.3.5-dist\css\bootstrap.css.map" />
+    <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="components\bootstrap3\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="components\bootstrap3\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="components\bootstrap3\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="components\bootstrap3\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="less\calendar.less" />
+    <Content Include="less\day.less" />
+    <Content Include="less\events.less" />
+    <Content Include="less\grid.less" />
+    <Content Include="less\month.less" />
+    <Content Include="less\theme.less" />
+    <Content Include="less\variables.less" />
+    <Content Include="less\week.less" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52393/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

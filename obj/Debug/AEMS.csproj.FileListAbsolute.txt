@@ -1,0 +1,5 @@
+C:\Users\Giang\Documents\AEMS\bin\AEMS.dll
+C:\Users\Giang\Documents\AEMS\bin\AEMS.pdb
+C:\Users\Giang\Documents\AEMS\obj\Debug\AEMS.dll
+C:\Users\Giang\Documents\AEMS\obj\Debug\AEMS.pdb
+C:\Users\Giang\Documents\AEMS\obj\Debug\AEMS.csprojResolveAssemblyReference.cache
