@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewEvent.aspx.cs"  %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewEvent.aspx.cs" Inherits="AEMS.ViewEvent"  %>
 
 <!-- Latest compiled and minified CSS -->
 <link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" />
