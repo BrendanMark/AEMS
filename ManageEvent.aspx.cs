@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace AEMS
 {
-    public partial class ManageReport : System.Web.UI.Page
+    public partial class ManageEvent : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -16,6 +16,7 @@ namespace AEMS
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
+  
             // making all the textboxes editable
             txtActualAttendee.Enabled = true;
             txtAlumniSpeaker.Enabled = true;
