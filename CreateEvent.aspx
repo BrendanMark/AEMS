@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateEvent.aspx.cs" Inherits="AEMS.CreateEvent" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateEvent.aspx.cs" Inherits="AEMS.createEvent" %>
 
 <!DOCTYPE html>
 
@@ -20,17 +20,17 @@
 <link href="BootstrapPickerMaster/dist/css/bootstrap-formhelpers.min.css" rel="stylesheet" />
 <script src="BootstrapPickerMaster/dist/js/bootstrap-formhelpers.min.js"></script>
 
-<%--jquery script, needed for all javascript to work--%>
- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-
+<html xmlns="http://www.w3.org/1999/xhtml">
 <%--Script for ToolTips--%>
 <script>
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
+
+<%--jquery script, needed for all javascript to work--%>
+ <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
 <%--script to add and remove textboxes using checkboxes--%>
 <script>
@@ -376,8 +376,7 @@
 </script>
 <%--end of script--%>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <title></title>
 </head>
 <body>
@@ -455,7 +454,6 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label class="control-label">Event End Time<span style="color: red">*</span></label>
-                                    <%--<input class="form-control" type="text" id="endtimepicker" />--%>
                                     <div class="bfh-timepicker" data-mode="12h" id="endtimepicker">
                                     </div>
                                 </div>
@@ -463,7 +461,6 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label class="control-label">Event End Date<span style="color: red">*</span></label>
-                                    <%--<input class="form-control" type="text" id="datepicker2" />--%>
                                     <div class="bfh-datepicker" id="enddatepicker">
                                     </div>
                                 </div>
@@ -595,6 +592,46 @@
                             </div>
                         </div></div>
                         <%--Event Sponsor Panel Ends--%>
+
+        <%--Sub Event Panelist Panel Starts--%>
+        <div class="container">
+                        <div class="panel-group" id="MainEventPanelist">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <asp:LinkButton ID="LinkButton3" runat="server"></asp:LinkButton>
+                                    <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#MainEventPanelist" href="#PanelistCollapse">Event Panelists</a>
+                                </div>
+                                <div id="PanelistCollapse" class="panel-collapse collapse out">
+                                    <div class="panel-body">
+                                        <div class="col-md-4">
+                                            <label class="control-label">First Name<span style="color: red">*</span></label>
+                                            <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="control-label">Last Name<span style="color: red">*</span></label>
+                                            <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="control-label">Email<span style="color: red">*</span></label>
+                                            <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="control-label">Phone Number<span style="color: red">*</span></label>
+                                            <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="control-label">Role<span style="color: red">*</span></label>
+                                            <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+<%--Sub Event Panelist Panel Ends--%>
+
+
+
 
             <%--Event Detail panel--%>
         <div class="container">
@@ -1035,6 +1072,65 @@
             </div>
         <%--event overview panel end--%>
 
+         <%--Adding Task Panel--%>
+        <div class="container">
+        <div class="panel-group" id="accordion14">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#accordion14" href="#collapseFourteen">Task</a>
+                </div>
+                <div id="collapseFourteen" class="panel-collapse collapse out">
+                    <div class="panel-body">
+
+                        <%--Start Panel for Catering--%>
+                        <div class="panel-group" id="accordion15">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#accordion15" href="#collapseFifteen">Catering</a>
+                                </div>
+                                <div id="collapseFifteen" class="panel-collapse collapse out">
+                                    <div class="panel-body">
+                                        <div class="col-md-4">
+                                            <label class="control-label">Order Pizza</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                <asp:CheckBox ID="chkPizza" runat="server" /><br />
+                                            <label class="control-label">Order Drinks</label>&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                <asp:CheckBox ID="chkDrinks" runat="server" /><br />
+                                            <label class="control-label">Order Tables</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                <asp:CheckBox ID="chkTables" runat="server" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%--End Panel For Catering--%>
+
+                        <%--Start Panel for Entertainment--%>
+                        <div class="panel-group" id="accordion16">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#accordion16" href="#collapseSixteen">Entertainment</a>
+                                </div>
+                                <div id="collapseSixteen" class="panel-collapse collapse out">
+                                    <div class="panel-body">
+                                        <div class="col-md-4">
+                                            <label class="control-label">Get Music</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                <asp:CheckBox ID="CheckBox1" runat="server" /><br />
+                                            <label class="control-label">Contact Guest Speaker</label>&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                <asp:CheckBox ID="CheckBox2" runat="server" /><br />
+                                            <label class="control-label">Get Microphones</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                <asp:CheckBox ID="CheckBox3" runat="server" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%--End Panel For Entertainment--%>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
           <%--Adding a Sub Event Panel--%>
         <div class ="container">
             <div class="panel-group" id="accordion8">
@@ -1244,37 +1340,32 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div></div>
-<%--Sub Event Panelist Panel Ends--%>
+                            <%--End panel for panelist--%>
 
-        <%--Adding Task Panel--%>
-        <div class="container">
-        <div class="panel-group" id="accordion14">
+                             <%--Adding Task Panel--%>
+        <div class="panel-group" id="SubEventTask">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#accordion14" href="#collapseFourteen">Task</a>
+                    <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#SubEventTask" href="#SubEventTaskCollapse">Task</a>
                 </div>
-                <div id="collapseFourteen" class="panel-collapse collapse out">
+                <div id="SubEventTaskCollapse" class="panel-collapse collapse out">
                     <div class="panel-body">
 
                         <%--Start Panel for Catering--%>
-                        <div class="panel-group" id="accordion15">
+                        <div class="panel-group" id="SECatering">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#accordion15" href="#collapseFifteen">Catering</a>
+                                    <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#SECatering" href="#SECateringCollapse">Catering</a>
                                 </div>
-                                <div id="collapseFifteen" class="panel-collapse collapse out">
+                                <div id="SECateringCollapse" class="panel-collapse collapse out">
                                     <div class="panel-body">
                                         <div class="col-md-4">
                                             <label class="control-label">Order Pizza</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                                <asp:CheckBox ID="chkPizza" runat="server" /><br />
+                                                <asp:CheckBox ID="CheckBox4" runat="server" /><br />
                                             <label class="control-label">Order Drinks</label>&nbsp&nbsp&nbsp&nbsp&nbsp
-                                                <asp:CheckBox ID="chkDrinks" runat="server" /><br />
+                                                <asp:CheckBox ID="CheckBox5" runat="server" /><br />
                                             <label class="control-label">Order Tables</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                                <asp:CheckBox ID="chkTables" runat="server" />
+                                                <asp:CheckBox ID="CheckBox6" runat="server" />
                                         </div>
                                     </div>
                                 </div>
@@ -1283,20 +1374,20 @@
                         <%--End Panel For Catering--%>
 
                         <%--Start Panel for Entertainment--%>
-                        <div class="panel-group" id="accordion16">
+                        <div class="panel-group" id="SEEntertainment">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#accordion16" href="#collapseSixteen">Entertainment</a>
+                                    <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#SEEntertainment" href="#SEEntertainmentCollapse">Entertainment</a>
                                 </div>
-                                <div id="collapseSixteen" class="panel-collapse collapse out">
+                                <div id="SEEntertainmentCollapse" class="panel-collapse collapse out">
                                     <div class="panel-body">
                                         <div class="col-md-4">
                                             <label class="control-label">Get Music</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                                <asp:CheckBox ID="CheckBox1" runat="server" /><br />
+                                                <asp:CheckBox ID="CheckBox7" runat="server" /><br />
                                             <label class="control-label">Contact Guest Speaker</label>&nbsp&nbsp&nbsp&nbsp&nbsp
-                                                <asp:CheckBox ID="CheckBox2" runat="server" /><br />
+                                                <asp:CheckBox ID="CheckBox8" runat="server" /><br />
                                             <label class="control-label">Get Microphones</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                                <asp:CheckBox ID="CheckBox3" runat="server" />
+                                                <asp:CheckBox ID="CheckBox9" runat="server" />
                                         </div>
                                     </div>
                                 </div>
@@ -1308,7 +1399,13 @@
             </div>
         </div>
         </div>
+        </div>
+                        </div>
+                    </div>
+            </div>
+            <%--Sub Event Panel Ends--%>
 
+       
         <%--footer for pages--%>
         <footer id="#footer">
             <div class="footer-wrap top">
