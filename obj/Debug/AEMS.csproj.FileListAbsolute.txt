@@ -6,4 +6,3 @@ C:\Users\Giang\Documents\AEMS\obj\Debug\AEMS.csprojResolveAssemblyReference.cach
 C:\Users\tud13239\Desktop\AEMS\obj\Debug\AEMS.csprojResolveAssemblyReference.cache
 C:\Users\tud13239\Desktop\AEMS\obj\Debug\AEMS.dll
 C:\Users\tud13239\Desktop\AEMS\obj\Debug\AEMS.pdb
-C:\Users\Chris\Documents\GitHub\AEMS\obj\Debug\AEMS.csprojResolveAssemblyReference.cache
