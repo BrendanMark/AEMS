@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateReport.aspx.cs"  %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateReport.aspx.cs" Inherits="AEMS.CreateReport"  %>
 
 <!DOCTYPE html>
 <%--style sheet reference for footer--%>
