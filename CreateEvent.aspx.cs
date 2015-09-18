@@ -12,7 +12,7 @@ namespace AEMS
         protected void Page_Load(object sender, EventArgs e)
         {
             Admin admin = new Admin();
-            admin.adminID = 2;
+            //admin.adminID = 2;
         }
     }
 }

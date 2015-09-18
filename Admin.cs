@@ -29,7 +29,7 @@ namespace AEMS
         public string AdminLastName
         {
             get { return adminLastName; }
-            set {adminLastName = value }
+            set { adminLastName = value; }
         }
         
     }

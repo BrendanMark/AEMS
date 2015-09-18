@@ -60,35 +60,36 @@
                             <h2 style="font-weight: bold">Or</h2>
 
                             <div style="text-align: left">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
                             <asp:Label ID="Label4" runat="server" Text="Event Type" Font-Bold="true"></asp:Label>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                                <asp:Label ID="Label1" runat="server" Text="Owner" Font-Bold="true"></asp:Label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                                <asp:Label ID="Label1" runat="server" Text="Owner Last Name" Font-Bold="true"></asp:Label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                                 <asp:Label ID="Label2" runat="server" Text="Date" Font-Bold="true"></asp:Label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <asp:Label ID="Label3" runat="server" Text="Event" Font-Bold="true"></asp:Label>
                                 <br />
                             </div>
 
                             <div style="border: 0px solid #a41e35; text-align: center">
 
-                                <asp:DropDownList ID="DropDownList5" runat="server" Height="16px" Width="90px">
-                                    <asp:ListItem>Networking</asp:ListItem>
+                                <asp:DropDownList ID="ddlEventType" runat="server" Height="16px" Width="96px" DataSourceID="ddlEventTypeDS" DataTextField="EventCategory" DataValueField="EventCategory">
                                 </asp:DropDownList>
+                                <asp:SqlDataSource ID="ddlEventTypeDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT [EventCategory] FROM [Event]"></asp:SqlDataSource>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
 
-                                <asp:DropDownList ID="DropDownList6" runat="server">
-                                    <asp:ListItem>Steve Hazzard</asp:ListItem>
-                                    <asp:ListItem>Jacob</asp:ListItem>
+                                <asp:DropDownList ID="ddlOwnerLastName" runat="server" Height="17px" Width="108px" DataSourceID="ddlOwnerDS" DataTextField="OwnerLastName" DataValueField="OwnerLastName">
                                 </asp:DropDownList>
+                                <asp:SqlDataSource ID="ddlOwnerDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT [OwnerLastName] FROM [Event_Owner]"></asp:SqlDataSource>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:DropDownList ID="DropDownList7" runat="server">
+    <asp:DropDownList ID="ddlDate" runat="server" DataSourceID="ddlDateDS" DataTextField="StartDate" DataValueField="StartDate">
         <asp:ListItem>March 29th, 2015</asp:ListItem>
     </asp:DropDownList>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="DropDownList8" runat="server" Height="16px" Width="250px">
+                                <asp:SqlDataSource ID="ddlDateDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT [StartDate] FROM [Event]"></asp:SqlDataSource>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlEvent" runat="server" Height="16px" Width="250px" DataSourceID="ddlEventDS" DataTextField="EventName" DataValueField="EventName">
                                     <asp:ListItem>Tampa: Phillies Spring Training 2015</asp:ListItem>
                                 </asp:DropDownList>
+                                <asp:SqlDataSource ID="ddlEventDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT [EventName] FROM [Event]"></asp:SqlDataSource>
                                 &nbsp;
                                 
                                 <asp:Button ID="btnGo" runat="server" Text="Go" CssClass="btn-sm btn-primary" />
@@ -102,11 +103,13 @@
                         </div>
 
                         <%--Grid View for the events--%>
-                        <asp:GridView ID="gvEvents" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnRowDataBound="gvEvents_RowDataBound">
+                        <asp:GridView ID="gvEvents" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnRowDataBound="gvEvents_RowDataBound" DataSourceID="gvEventsDS">
                             <Columns>
-                                <asp:BoundField HeaderText="Title" />
-                                <asp:BoundField HeaderText="Name" />
-                                <asp:BoundField HeaderText="Date" />
+                                <asp:BoundField HeaderText="EventName" DataField="EventName" SortExpression="EventName"/>
+                                <asp:BoundField HeaderText="StartDate" DataField="StartDate" SortExpression="StartDate"/>
+                                <asp:BoundField HeaderText="StartTime" DataField="StartTime" SortExpression="StartTime"/>
+                                <asp:BoundField HeaderText="OwnerFirstName" DataField="OwnerFirstName" SortExpression="OwnerFirstName"/>
+                                <asp:BoundField HeaderText="OwnerLastName" DataField="OwnerLastName" SortExpression="OwnerLastName"/>
 
                                 <asp:TemplateField HeaderText="View Detail" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
@@ -120,6 +123,8 @@
                                 </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
+
+                        <asp:SqlDataSource ID="gvEventsDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT Event.EventName, Event.StartDate, Event.StartTime, Event_Owner.OwnerFirstName, Event_Owner.OwnerLastName FROM Event INNER JOIN Event_Has_Event_Owner ON Event.EventID = Event_Has_Event_Owner.EventID INNER JOIN Event_Owner ON Event.EventOwnerID = Event_Owner.EventOwnerID AND Event_Has_Event_Owner.EventOwnerID = Event_Owner.EventOwnerID"></asp:SqlDataSource>
 
                         <br />
                     </div>
