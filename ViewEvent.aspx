@@ -103,7 +103,7 @@
                         </div>
 
                         <%--Grid View for the events--%>
-                        <asp:GridView ID="gvEvents" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnRowDataBound="gvEvents_RowDataBound" DataSourceID="gvEventsDS">
+                        <asp:GridView ID="gvEvents" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnRowDataBound="gvEvents_RowDataBound">
                             <Columns>
                                 <asp:BoundField HeaderText="EventName" DataField="EventName" SortExpression="EventName"/>
                                 <asp:BoundField HeaderText="StartDate" DataField="StartDate" SortExpression="StartDate"/>
