@@ -240,7 +240,6 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Location.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -255,13 +254,7 @@
     <Compile Include="ManageEvent.aspx.designer.cs">
       <DependentUpon>ManageEvent.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Panelist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sponsor.cs" />
-    <Compile Include="SubEvent.cs" />
-    <Compile Include="Task.cs" />
-    <Compile Include="TaskCategory.cs" />
-    <Compile Include="Vendor.cs" />
     <Compile Include="ViewEvent.aspx.cs">
       <DependentUpon>ViewEvent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
