@@ -50,49 +50,43 @@
                         <h3 class="panel-title" style="font-weight: bold">Look Up Events</h3>
                     </div>
                     <div class="panel-body">
+                        <asp:Label ID="lblDisplay" runat="server" Font-Bold="true" ForeColor="Red"></asp:Label>
                         <div class="form-inline" style="text-align: center">
-                            <asp:Label ID="lblSearch" runat="server" Text="Search By Title: " Font-Bold="true"></asp:Label>&nbsp
-                            <asp:TextBox ID="txtSearchRestaurant" runat="server" CssClass="form-control" placeHolder="Search.."></asp:TextBox>
+                            <asp:Label ID="lblSearch" runat="server" Text="Search By Event Name: " Font-Bold="true"></asp:Label>&nbsp
+                            <asp:TextBox ID="txtSearchEvent" runat="server" CssClass="form-control" placeHolder="Search.."></asp:TextBox>
                             &nbsp&nbsp&nbsp&nbsp
 
-                    <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn-sm btn-primary" />
+                    <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn-sm btn-primary" OnClick="btnSearch_Click" />
                             <br />
                             <h2 style="font-weight: bold">Or</h2>
-
-                            <div style="text-align: left">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
-                            <asp:Label ID="Label4" runat="server" Text="Event Type" Font-Bold="true"></asp:Label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                                <asp:Label ID="Label1" runat="server" Text="Owner Last Name" Font-Bold="true"></asp:Label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                                <asp:Label ID="Label2" runat="server" Text="Date" Font-Bold="true"></asp:Label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <asp:Label ID="Label3" runat="server" Text="Event" Font-Bold="true"></asp:Label>
-                                <br />
-                            </div>
+                            
 
                             <div style="border: 0px solid #a41e35; text-align: center">
 
-                                <asp:DropDownList ID="ddlEventType" runat="server" Height="16px" Width="96px" DataSourceID="ddlEventTypeDS" DataTextField="EventCategory" DataValueField="EventCategory">
+                                <asp:Label ID="Label5" runat="server" Text="Event Category" Font-Bold="true"></asp:Label>
+                                <asp:DropDownList ID="ddlEventCategory" runat="server" Height="20px" DataSourceID="ddlEventTypeDS" DataTextField="EventCategory" DataValueField="EventCategory" AutoPostBack="true" OnSelectedIndexChanged="ddlEventCategory_SelectedIndexChanged">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="ddlEventTypeDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT [EventCategory] FROM [Event]"></asp:SqlDataSource>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
 
-                                <asp:DropDownList ID="ddlOwnerLastName" runat="server" Height="17px" Width="108px" DataSourceID="ddlOwnerDS" DataTextField="OwnerLastName" DataValueField="OwnerLastName">
+                                <asp:Label ID="Label1" runat="server" Text="Owner Last Name" Font-Bold="true"></asp:Label>
+                                <asp:DropDownList ID="ddlOwnerLastName" runat="server" Height="20px" DataSourceID="ddlOwnerDS" DataTextField="OwnerLastName" DataValueField="OwnerLastName" AutoPostBack="true" OnSelectedIndexChanged="ddlOwnerLastName_SelectedIndexChanged">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="ddlOwnerDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT [OwnerLastName] FROM [Event_Owner]"></asp:SqlDataSource>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:DropDownList ID="ddlDate" runat="server" DataSourceID="ddlDateDS" DataTextField="StartDate" DataValueField="StartDate">
-        <asp:ListItem>March 29th, 2015</asp:ListItem>
-    </asp:DropDownList>
+
+                                <asp:Label ID="Label2" runat="server" Text="Date" Font-Bold="true"></asp:Label>
+                                <asp:DropDownList ID="ddlDate" runat="server" Height="20px" DataSourceID="ddlDateDS" DataTextField="StartDate" DataValueField="StartDate" AutoPostBack="true" OnSelectedIndexChanged="ddlDate_SelectedIndexChanged">
+                                </asp:DropDownList>
                                 <asp:SqlDataSource ID="ddlDateDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT [StartDate] FROM [Event]"></asp:SqlDataSource>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlEvent" runat="server" Height="16px" Width="250px" DataSourceID="ddlEventDS" DataTextField="EventName" DataValueField="EventName">
-                                    <asp:ListItem>Tampa: Phillies Spring Training 2015</asp:ListItem>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                
+                                <asp:Label ID="Label3" runat="server" Text="Event Name" Font-Bold="true"></asp:Label>
+                                <asp:DropDownList ID="ddlEventName" runat="server" Height="20px" DataSourceID="ddlEventDS" DataTextField="EventName" DataValueField="EventName" AutoPostBack="true" OnSelectedIndexChanged="ddlEventName_SelectedIndexChanged">                                   
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="ddlEventDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT [EventName] FROM [Event]"></asp:SqlDataSource>
                                 &nbsp;
                                 
-                                <asp:Button ID="btnGo" runat="server" Text="Go" CssClass="btn-sm btn-primary" />
                                 <br />
                                 <br />
 
