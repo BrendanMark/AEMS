@@ -630,7 +630,7 @@
                                 </div>
                             </div>
                         </div>
-            <%--Event Sponsor Panel Ends--%>            <%--Event Detail panel--%>
+            <%--Event Sponsor Panel Ends--%><%--Event Detail panel--%>
             <div class="panel-group" id="#eventAccordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -1122,8 +1122,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <%--Sub Event Detail Panel Ends--%>
-                        <%--Sub Event Owner Panel Starts--%>
+                            <%--Sub Event Detail Panel Ends--%>                        <%--Sub Event Owner Panel Starts--%>
                         <div class="panel-group" id="accordion10">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
@@ -1152,7 +1151,7 @@
                                 </div>
                             </div>
                         </div>
-                            <%--Sub Event Owner Panel Ends--%>                        <%--Sub Event Location Panel Starts--%>
+                            <%--Sub Event Owner Panel Ends--%><%--Sub Event Location Panel Starts--%>
                         <div class="panel-group" id="accordion11">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
@@ -1193,7 +1192,7 @@
                                 </div>
                             </div>
                         </div>
-                            <%--Sub Event Location Panel Ends--%>                        <%--Sub Event Sponsor Panel Starts--%>
+                            <%--Sub Event Location Panel Ends--%><%--Sub Event Sponsor Panel Starts--%>
                         <div class="panel-group" id="accordion12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
@@ -1243,7 +1242,7 @@
                                 </div>
                             </div>
                         </div>
-                            <%--Sub Event Sponsor Panel Ends--%>                        <%--Sub Event Panelist Panel Starts--%>
+                            <%--Sub Event Sponsor Panel Ends--%><%--Sub Event Panelist Panel Starts--%>
                         <div class="panel-group" id="accordion13">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
@@ -1315,7 +1314,7 @@
 <br />
 <button class="btn btn-lg btn-primary btn-add-panel"> <i class="glyphicon glyphicon-plus"></i> Add new panel</button>--%><%--Template for adding another sub-event panel Ends--%>
         </div>
-            <%--Sub Event Panelist Panel Ends--%>        <%--Adding Task Panel--%>
+            <%--Sub Event Panelist Panel Ends--%><%--Adding Task Panel--%>
         <div class="panel-group" id="accordion14">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -1344,7 +1343,7 @@
                                 </div>
                             </div>
                         </div>
-                        <%--End Panel For Catering--%>                        <%--Start Panel for Entertainment--%>
+                        <%--End Panel For Catering--%><%--Start Panel for Entertainment--%>
                         <div class="panel-group" id="accordion16">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
@@ -1368,16 +1367,13 @@
                     </div>
                 </div>
             </div>
+            <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Save" />
         </div>
 
         </div>
 
 
-        <a href="CreateSubEvent.aspx" class="btn btn-primary btn-Sigin" data-toggle="popover" data-placement="right" data-content="Click Next to Create a SubEvent for your Event." title="" data-original-title="Popover on right" style="font-size: large; height: 43px;">
-            <div class="text-center">
-                <strong>Add Sub Event</strong>
-            </div>
-        </a>
+      
 
 
 
