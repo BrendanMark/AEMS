@@ -24,8 +24,6 @@ C:\Users\tuf15070\Documents\GitHub\AEMS\obj\Debug\AEMS.pdb
 C:\Users\Chris\Documents\GitHub\AEMS\bin\AEMS.dll
 C:\Users\Chris\Documents\GitHub\AEMS\bin\AEMS.pdb
 C:\Users\Chris\Documents\GitHub\AEMS\bin\ClassLibrary.dll
-C:\Users\Chris\Documents\GitHub\AEMS\bin\Utilities.dll
-C:\Users\Chris\Documents\GitHub\AEMS\bin\Utilities.pdb
 C:\Users\Chris\Documents\GitHub\AEMS\bin\ClassLibrary.pdb
 C:\Users\Chris\Documents\GitHub\AEMS\obj\Debug\AEMS.csprojResolveAssemblyReference.cache
 C:\Users\Chris\Documents\GitHub\AEMS\obj\Debug\AEMS.dll

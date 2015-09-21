@@ -330,10 +330,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Desktop\Utilities\Utilities.csproj">
-      <Project>{918f80c1-f33b-4ebc-ad04-1f9cf263e519}</Project>
-      <Name>Utilities</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj">
       <Project>{69b824ed-a03c-4bc1-809c-2a8cd1076ed5}</Project>
       <Name>ClassLibrary</Name>
