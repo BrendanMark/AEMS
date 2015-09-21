@@ -27,5 +27,12 @@ namespace AEMS
         public string eventCategory { get; set; }
         public string timeZone1 { get; set; }
         public string timeZone2 { get; set; }
+        private int actualAttendance;
+
+        public int ActualAttendance
+        {
+            get { return actualAttendance; }
+            set { actualAttendance = value; }
+        }
     }
 }
