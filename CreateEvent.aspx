@@ -447,8 +447,26 @@
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label">Event Owner<span style="color: red">*</span></label>
-                                    <asp:TextBox ID="txtEventOwner" runat="server" CssClass="form-control input-md" TabIndex="1"></asp:TextBox>
+                                    <label class="control-label">Event Owner First Name<span style="color: red">*</span></label>
+                                    <asp:TextBox ID="txtOwnerFirstName" runat="server" CssClass="form-control input-md" TabIndex="1"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Event Owner Last Name<span style="color: red">*</span></label>
+                                    <asp:TextBox ID="txtOwnerLastName" runat="server" CssClass="form-control input-md" TabIndex="1"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Email<span style="color: red">*</span></label>
+                                    <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control input-md" TabIndex="1"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Phone Number<span style="color: red">*</span></label>
+                                    <asp:TextBox ID="txtPhoneNumber" runat="server" CssClass="form-control input-md" TabIndex="1"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-sm-4">
@@ -598,7 +616,7 @@
                         <div class="panel-group" id="MainEventPanelist">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <asp:LinkButton ID="LinkButton3" runat="server"></asp:LinkButton>
+                                    
                                     <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#MainEventPanelist" href="#PanelistCollapse">Event Panelists</a>
                                 </div>
                                 <div id="PanelistCollapse" class="panel-collapse collapse out">
@@ -1192,19 +1210,19 @@
                                     <div class="panel-body">
                                         <div class="col-md-4">
                                             <label class="control-label">Owner First Name<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtOwnerFirstName" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtSubOwnerFirstName" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Owner Last Name<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtOwnerLastName" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtSubOwnerLastName" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">E-mail<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtSubEmail" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Phone Number<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtPhoneNumber" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtSubPhoneNumber" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -1404,7 +1422,10 @@
                     </div>
             </div>
             <%--Sub Event Panel Ends--%>
-
+        <%--Sub Event Panel Ends--%>
+        <div class="container">
+            <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
+        </div>
        
         <%--footer for pages--%>
         <footer id="#footer">
