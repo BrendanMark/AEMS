@@ -4,14 +4,32 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ClassLibrary;
+using Utilities;
 
+using System.Data;
+using System.Data.SqlClient;
 namespace AEMS
 {
     public partial class ManageEvent : System.Web.UI.Page
     {
+        Connection connection = new Connection();
+        Event updateEvent = new Event();
+        Location eventLocation = new Location();
+        Event_Owner owner = new Event_Owner();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                int eventID = 5;
+                SqlCommand objCommand = new SqlCommand();
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "GetEventInfo";
+                objCommand.Parameters.AddWithValue("@EventID", eventID);
+                DataSet ds = connection.GetDataSetUsingCmdObj(objCommand);
+                DataTable table = new DataTable();
+                ds.Tables.Add(table);
+            }
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
@@ -174,5 +192,25 @@ namespace AEMS
             rblSponsorUniversityPartner.Enabled = true;
             rblCoSponsorUniversityPartner.Enabled = true;
         }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                updateEvent.ActualAttendance = int.Parse(txtActualAttendee.Text);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            updateEvent.eventName = txtEventName.Text;
+            owner.FirstName = txtEventOwner.Text;
+            eventLocation.StreetAddress1 = txtStreetAddress1.Text;
+            eventLocation.StreetAddress2 = txtStreetAddress2.Text;
+            eventLocation.Building = txtBuildingName.Text;
+            eventLocation.LocationRoomNumber = txtRoomNumber.Text;
+            eventLocation.City = txtCity.Text;
+            eventLocation.Zipcode =int.Parse( txtZipCode.Text);
+        }
+        }
     }
-}
