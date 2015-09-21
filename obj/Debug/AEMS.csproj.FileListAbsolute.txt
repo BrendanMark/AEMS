@@ -30,3 +30,5 @@ C:\Users\Chris\Documents\GitHub\AEMS\bin\ClassLibrary.pdb
 C:\Users\Chris\Documents\GitHub\AEMS\obj\Debug\AEMS.csprojResolveAssemblyReference.cache
 C:\Users\Chris\Documents\GitHub\AEMS\obj\Debug\AEMS.dll
 C:\Users\Chris\Documents\GitHub\AEMS\obj\Debug\AEMS.pdb
+C:\Users\Giang\Desktop\AEMS\bin\Utilities.dll
+C:\Users\Giang\Desktop\AEMS\bin\Utilities.pdb
