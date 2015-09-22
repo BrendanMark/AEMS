@@ -79,7 +79,7 @@
                                 <asp:DropDownList ID="ddlDate" runat="server" Height="20px" DataSourceID="ddlDateDS" DataTextField="StartDate" DataValueField="StartDate" AutoPostBack="true" OnSelectedIndexChanged="ddlDate_SelectedIndexChanged">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="ddlDateDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT DISTINCT [StartDate] FROM [Event]"></asp:SqlDataSource>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 
                                 <asp:Label ID="Label3" runat="server" Text="Event Name" Font-Bold="true"></asp:Label>
                                 <asp:DropDownList ID="ddlEventName" runat="server" Height="20px" DataSourceID="ddlEventDS" DataTextField="EventName" DataValueField="EventName" AutoPostBack="true" OnSelectedIndexChanged="ddlEventName_SelectedIndexChanged">                                   
@@ -97,7 +97,7 @@
                         </div>
 
                         <%--Grid View for the events--%>
-                        <asp:GridView ID="gvEvents" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnRowDataBound="gvEvents_RowDataBound" OnRowCommand="gvEvents_RowCommand" OnRowDeleting="gvEvents_RowDeleting" DataKeyNames="EventID">
+                        <asp:GridView ID="gvEvents" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnRowDataBound="gvEvents_RowDataBound" OnRowCommand="gvEvents_RowCommand" OnRowDeleting="gvEvents_RowDeleting">
                             <Columns>
                                 <asp:BoundField HeaderText="EventName" DataField="EventName" SortExpression="EventName"/>
                                 <asp:BoundField HeaderText="StartDate" DataField="StartDate" SortExpression="StartDate"/>

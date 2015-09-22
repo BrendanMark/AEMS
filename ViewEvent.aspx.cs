@@ -32,12 +32,6 @@ namespace AEMS
 
                     gvEvents.DataSource = myDS;
                     gvEvents.DataBind();
-
-                    //to store the restaurant ID parallel to the grid view (it is not shown in the grid view)
-                    String[] names = new String[1];
-                    names[0] = "EventID";
-                    gvEvents.DataKeyNames = names;
-                    gvEvents.DataBind();
                 }
             }
         }
