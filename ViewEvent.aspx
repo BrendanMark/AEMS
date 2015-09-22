@@ -66,25 +66,25 @@
                                 <asp:Label ID="Label5" runat="server" Text="Event Category" Font-Bold="true"></asp:Label>
                                 <asp:DropDownList ID="ddlEventCategory" runat="server" Height="20px" DataSourceID="ddlEventTypeDS" DataTextField="EventCategory" DataValueField="EventCategory" AutoPostBack="true" OnSelectedIndexChanged="ddlEventCategory_SelectedIndexChanged">
                                 </asp:DropDownList>
-                                <asp:SqlDataSource ID="ddlEventTypeDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT [EventCategory] FROM [Event]"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="ddlEventTypeDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT DISTINCT [EventCategory] FROM [Event]"></asp:SqlDataSource>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
 
                                 <asp:Label ID="Label1" runat="server" Text="Owner Last Name" Font-Bold="true"></asp:Label>
                                 <asp:DropDownList ID="ddlOwnerLastName" runat="server" Height="20px" DataSourceID="ddlOwnerDS" DataTextField="OwnerLastName" DataValueField="OwnerLastName" AutoPostBack="true" OnSelectedIndexChanged="ddlOwnerLastName_SelectedIndexChanged">
                                 </asp:DropDownList>
-                                <asp:SqlDataSource ID="ddlOwnerDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT [OwnerLastName] FROM [Event_Owner]"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="ddlOwnerDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT DISTINCT [OwnerLastName] FROM [Event_Owner]"></asp:SqlDataSource>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                                 <asp:Label ID="Label2" runat="server" Text="Date" Font-Bold="true"></asp:Label>
                                 <asp:DropDownList ID="ddlDate" runat="server" Height="20px" DataSourceID="ddlDateDS" DataTextField="StartDate" DataValueField="StartDate" AutoPostBack="true" OnSelectedIndexChanged="ddlDate_SelectedIndexChanged">
                                 </asp:DropDownList>
-                                <asp:SqlDataSource ID="ddlDateDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT [StartDate] FROM [Event]"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="ddlDateDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT DISTINCT [StartDate] FROM [Event]"></asp:SqlDataSource>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 
                                 <asp:Label ID="Label3" runat="server" Text="Event Name" Font-Bold="true"></asp:Label>
                                 <asp:DropDownList ID="ddlEventName" runat="server" Height="20px" DataSourceID="ddlEventDS" DataTextField="EventName" DataValueField="EventName" AutoPostBack="true" OnSelectedIndexChanged="ddlEventName_SelectedIndexChanged">                                   
                                 </asp:DropDownList>
-                                <asp:SqlDataSource ID="ddlEventDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT [EventName] FROM [Event]"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="ddlEventDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT DISTINCT [EventName] FROM [Event]"></asp:SqlDataSource>
                                 &nbsp;
                                 
                                 <br />
@@ -97,7 +97,7 @@
                         </div>
 
                         <%--Grid View for the events--%>
-                        <asp:GridView ID="gvEvents" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnRowDataBound="gvEvents_RowDataBound">
+                        <asp:GridView ID="gvEvents" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnRowDataBound="gvEvents_RowDataBound" OnRowCommand="gvEvents_RowCommand" OnRowDeleting="gvEvents_RowDeleting" DataKeyNames="EventID">
                             <Columns>
                                 <asp:BoundField HeaderText="EventName" DataField="EventName" SortExpression="EventName"/>
                                 <asp:BoundField HeaderText="StartDate" DataField="StartDate" SortExpression="StartDate"/>
@@ -107,12 +107,12 @@
 
                                 <asp:TemplateField HeaderText="View Detail" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
-                                        <button id="Button6" runat="server" class="btn"><span class="glyphicon glyphicon-eye-open"></span></button>
+                                        <asp:LinkButton ID="btnViewEvent" runat="server"><i class="glyphicon glyphicon-eye-open"></i></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Delete" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
-                                        <button id="Button1" runat="server" class="btn"><span id="Span1" class="glyphicon glyphicon-trash"></span></button>
+                                        <asp:LinkButton ID="btnDeleteEvent" runat="server" OnClick="btnDeleteEvent_Click"><i class="glyphicon glyphicon-trash"></i></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

@@ -32,6 +32,12 @@ namespace AEMS
 
                     gvEvents.DataSource = myDS;
                     gvEvents.DataBind();
+
+                    //to store the restaurant ID parallel to the grid view (it is not shown in the grid view)
+                    String[] names = new String[1];
+                    names[0] = "EventID";
+                    gvEvents.DataKeyNames = names;
+                    gvEvents.DataBind();
                 }
             }
         }
@@ -167,6 +173,26 @@ namespace AEMS
             }
         }
 
+        // Finds out which row was selected and finds the EventID of that particular Event
+        protected void gvEvents_RowCommand(Object sender, GridViewCommandEventArgs e)
+        {
+            //int rowIndex = e.RowIndex;
+        }
+
+        // Finds out which row was selected and finds the EventID of that particular Event to delete it
+        protected void btnDeleteEvent_Click(object sender, EventArgs e)
+        {
+            String rowIndex = gvEvents.Rows[gvEvents.SelectedIndex].Cells[0].Text;
+        }
+
+        protected void gvEvents_RowDeleting(Object sender, System.Web.UI.WebControls.GridViewDeleteEventArgs e)
+        {
+            // retrieve the row index for which the Update button was clicked
+            int rowIndex = e.RowIndex;
+
+            // retrieve the product ID from datakeynames (this property stores the primary key of the grid view without displaying it)
+            //int productID = Convert.ToInt32(gvProducts.DataKeys[rowIndex].Value.ToString());
+        }
 
     }
 }
