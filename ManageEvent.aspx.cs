@@ -13,21 +13,52 @@ namespace AEMS
     public partial class ManageEvent : System.Web.UI.Page
     {
         Connection connection = new Connection();
-        Event updateEvent = new Event();
+        //Event updateEvent = new Event();
         //Location eventLocation = new Location();
-        Event_Owner owner = new Event_Owner();
+        //Event_Owner owner = new Event_Owner();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 int eventID = 5;
+                int ownerID = 6;
+                string firstName;
+                string lastName;
+                string fullName;
+                int check = 0;
                 SqlCommand objCommand = new SqlCommand();
                 objCommand.CommandType = CommandType.StoredProcedure;
                 objCommand.CommandText = "GetEventInfo";
                 objCommand.Parameters.AddWithValue("@EventID", eventID);
                 DataSet ds = connection.GetDataSetUsingCmdObj(objCommand);
-                DataTable table = new DataTable();
-                ds.Tables.Add(table);
+                if (ds.Tables[0].Rows.Count == 0)
+                {
+                    check = 1;
+                }
+                SqlCommand getLocationCommand = new SqlCommand();
+                getLocationCommand.CommandType = CommandType.StoredProcedure;
+                getLocationCommand.CommandText = "GetEventLocation";
+                getLocationCommand.Parameters.AddWithValue("@EventID", eventID);
+                DataSet dsLocation = connection.GetDataSetUsingCmdObj(getLocationCommand);
+                
+                txtEventName.Text = ds.Tables[0].Rows[0]["EventName"].ToString();
+                txtStreetAddress1.Text = dsLocation.Tables[0].Rows[0]["StreetAddress1"].ToString();
+                txtStreetAddress2.Text = dsLocation.Tables[0].Rows[0]["StreetAddress2"].ToString();
+                txtBuildingName.Text = dsLocation.Tables[0].Rows[0]["BuildingName"].ToString();
+                txtCity.Text = dsLocation.Tables[0].Rows[0]["City"].ToString();
+                txtRoomNumber.Text = dsLocation.Tables[0].Rows[0]["RoomNumber"].ToString();
+                txtZipCode.Text = dsLocation.Tables[0].Rows[0]["ZipCode"].ToString();
+
+                SqlCommand getEventOwner = new SqlCommand();
+                getEventOwner.CommandType = CommandType.StoredProcedure;
+                getEventOwner.CommandText = "GetEventOwner";
+                getEventOwner.Parameters.AddWithValue("@EventID", eventID);
+                getEventOwner.Parameters.AddWithValue("@OwnerID", ownerID);
+                DataSet dsOwner = connection.GetDataSetUsingCmdObj(getEventOwner);
+                firstName = dsOwner.Tables[0].Rows[0]["OwnerFirstName"].ToString();
+                lastName = dsOwner.Tables[0].Rows[0]["OwnerLastName"].ToString();
+                fullName = firstName + " " + lastName;
+                txtEventOwner.Text = fullName;
             }
         }
 
@@ -194,16 +225,16 @@ namespace AEMS
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            try
-            {
-                updateEvent.ActualAttendance = int.Parse(txtActualAttendee.Text);
-            }
-            catch (Exception ex)
-            {
+            //try
+            //{
+            //    updateEvent.ActualAttendance = int.Parse(txtActualAttendee.Text);
+            //}
+            //catch (Exception ex)
+            //{
 
-            }
-            updateEvent.eventName = txtEventName.Text;
-            owner.FirstName = txtEventOwner.Text;
+            //}
+            //updateEvent.eventName = txtEventName.Text;
+            //owner.FirstName = txtEventOwner.Text;
             //eventLocation.StreetAddress1 = txtStreetAddress1.Text;
             //eventLocation.StreetAddress2 = txtStreetAddress2.Text;
             //eventLocation.Building = txtBuildingName.Text;
