@@ -14,6 +14,9 @@ namespace AEMS
         //connect to database
         Connection objDB = new Connection();
         SqlCommand objCommand = new SqlCommand();
+        SqlCommand SaveSponserobjCommand = new SqlCommand();
+        SqlCommand SavePanelListobjCommand = new SqlCommand();
+        SqlCommand SaveEventLocationCommand = new SqlCommand();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,6 +31,9 @@ namespace AEMS
             //SaveMainEventOwner();
             //SaveEvent();
             SaveLocation();
+            SaveSponsor();
+            SavePanelList();
+            SaveSubEventLocation();
         }
 
         public void SaveMainEventOwner()
@@ -80,6 +86,82 @@ namespace AEMS
             objDB.DoUpdateUsingCmdObj(objCommand);
         }
 
+        public void SaveSponsor()
+        {
+            string strSQL = "CreateSponsor";
+            SaveSponserobjCommand.CommandText = strSQL;
+            SaveSponserobjCommand.CommandType = CommandType.StoredProcedure;
+            SaveSponserobjCommand.Parameters.AddWithValue("@SponserName", txtEventSponsorName.Text);
+            SaveSponserobjCommand.Parameters.AddWithValue("@CoSponserName", txtEventCoSponsorName.Text);
+            SaveSponserobjCommand.Parameters.AddWithValue("@UniversityPartnerName", rdbEventUniversityPartner.SelectedIndex);
+            SaveSponserobjCommand.Parameters.AddWithValue("@UniversityPartner", rdbEventCoUniversityPartner.SelectedIndex);
+            SaveSponserobjCommand.Parameters.AddWithValue("@SponsorEmail", txtEventSponsorEmail.Text);
+            SaveSponserobjCommand.Parameters.AddWithValue("@CoSponsorEmail", txtEventCoSponsorEmail.Text);
+
+            objDB.DoUpdateUsingCmdObj(SaveSponserobjCommand);
+        }
+
+        public void SavePanelList()
+        {
+            string strSQL = "CreatePanellist";
+            SavePanelListobjCommand.CommandText = strSQL;
+            SavePanelListobjCommand.CommandType = CommandType.StoredProcedure;
+            SavePanelListobjCommand.Parameters.AddWithValue("@PanelistFirstName", txtEventPanelistFirstName.Text);
+            SavePanelListobjCommand.Parameters.AddWithValue("@PanelistEmail", txtEventPanellistEmail.Text);
+            SavePanelListobjCommand.Parameters.AddWithValue("@PanelistPhoneNumber", txtEventPanelistPhoneNumber.Text);
+            SavePanelListobjCommand.Parameters.AddWithValue("@PanelistLastName", txtEventPanelistLastName.Text);
+            SavePanelListobjCommand.Parameters.AddWithValue("@PanelistRole", txtEventPanelistRole.Text);
+
+            objDB.DoUpdateUsingCmdObj(SavePanelListobjCommand);
+        }
+
+        //public void SaveSubEventDetails()
+        //{
+        //    string strSQL = "CreatePanellist";
+        //    SaveEventDetailsCommand.CommandText = strSQL;
+        //    SaveEventDetailsCommand.CommandType = CommandType.StoredProcedure;
+
+        //    SaveEventDetailsCommand.Parameters.AddWithValue("@", txtEventPanelistFirstName.Text);
+        //    SaveEventDetailsCommand.Parameters.AddWithValue("@PanelistEmail", txtEventPanellistEmail.Text);
+        //    SaveEventDetailsCommand.Parameters.AddWithValue("@PanelistPhoneNumber", txtEventPanelistPhoneNumber.Text);
+        //    SaveEventDetailsCommand.Parameters.AddWithValue("@PanelistLastName", txtEventPanelistLastName.Text);
+        //    SaveEventDetailsCommand.Parameters.AddWithValue("@PanelistRole", txtEventPanelistRole.Text);
+
+        //    objDB.DoUpdateUsingCmdObj(SaveEventDetailsCommand);
+        //}
+
+
+
+        //public void SaveSubEventOwner()
+        //{
+        //    string strSQL = "CreateSubEventOwner";
+        //    SaveEventOwnerCommand.CommandText = strSQL;
+        //    SaveEventOwnerCommand.CommandType = CommandType.StoredProcedure;
+        //    SaveEventOwnerCommand.Parameters.AddWithValue("@SubEventName", txtSubOwnerFirstName.Text);
+        //    SaveEventOwnerCommand.Parameters.AddWithValue("@SubEventStartDate", txtSubOwnerLastName.Text);
+        //    SaveEventOwnerCommand.Parameters.AddWithValue("@SubEventEndDate", txtSubEmail.Text);
+        //    SaveEventOwnerCommand.Parameters.AddWithValue("@RegistrationURL", txtSubPhoneNumber.Text);
+
+
+        //    objDB.DoUpdateUsingCmdObj(SaveEventOwnerCommand);
+        //}
+
+
+        public void SaveSubEventLocation()
+        {
+            string strSQL = "CreateSubEventLocation";
+            SaveEventLocationCommand.CommandText = strSQL;
+            SaveEventLocationCommand.CommandType = CommandType.StoredProcedure;
+            SaveEventLocationCommand.Parameters.AddWithValue("@SubEventStreetAddress1", txtSubStreetAddress1.Text);
+            SaveEventLocationCommand.Parameters.AddWithValue("@SubEventStreetAddress2", txtSubStreetAddress2.Text);
+            SaveEventLocationCommand.Parameters.AddWithValue("@SubEventCity", txtSubCity.Text);
+            SaveEventLocationCommand.Parameters.AddWithValue("@SubEventState", txtSubState.Text);
+            SaveEventLocationCommand.Parameters.AddWithValue("@SubEventZipCode", txtSubZipCode.Text);
+            SaveEventLocationCommand.Parameters.AddWithValue("@SubEventBuildingName", txtSubBuildingName.Text);
+            SaveEventLocationCommand.Parameters.AddWithValue("@SubEventRoomNumber", txtSubRoomNumber.Text);
+
+            objDB.DoUpdateUsingCmdObj(SaveEventLocationCommand);
+        }
     
 
         

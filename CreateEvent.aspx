@@ -903,15 +903,15 @@
                                     <div class="panel-body">
                                         <div class="col-md-4">
                                             <label class="control-label">Sponsor Name<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="SponsorName" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtEventSponsorName" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Email<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="SponsorEmail" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtEventSponsorEmail" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-2">
                                             <label class="control-label">University Partner?<span style="color: red">*</span></label>
-                                            <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal">
+                                            <asp:RadioButtonList ID="rdbEventUniversityPartner" runat="server" RepeatDirection="Horizontal">
                                                 <asp:ListItem>Yes</asp:ListItem>
                                                 <asp:ListItem>No</asp:ListItem>
                                             </asp:RadioButtonList>
@@ -922,15 +922,15 @@
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Co-Sponsor Name<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="CoSponsorName" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtEventCoSponsorName" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Email<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="CoSponsorEmail" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtEventCoSponsorEmail" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-2">
                                             <label class="control-label">University Partner?<span style="color: red">*</span></label>
-                                            <asp:RadioButtonList ID="UniversityPartner" runat="server" RepeatDirection="Horizontal">
+                                            <asp:RadioButtonList ID="rdbEventCoUniversityPartner" runat="server" RepeatDirection="Horizontal">
                                                 <asp:ListItem>Yes</asp:ListItem>
                                                 <asp:ListItem>No</asp:ListItem>
                                             </asp:RadioButtonList>
@@ -957,23 +957,23 @@
                                     <div class="panel-body">
                                         <div class="col-md-4">
                                             <label class="control-label">First Name<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtEventPanelistFirstName" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Last Name<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtEventPanellistEmail" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Email<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtEventPanelistPhoneNumber" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Phone Number<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtEventPanelistLastName" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Role<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtEventPanelistRole" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
