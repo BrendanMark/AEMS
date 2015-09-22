@@ -31,3 +31,8 @@ W:\CIS4396-F01\tuf15070\AEMS\bin\AEMS.dll
 W:\CIS4396-F01\tuf15070\AEMS\bin\AEMS.pdb
 W:\CIS4396-F01\tuf15070\AEMS\obj\Debug\AEMS.dll
 W:\CIS4396-F01\tuf15070\AEMS\obj\Debug\AEMS.pdb
+C:\Users\Chris\Desktop\AEMS\bin\AEMS.dll
+C:\Users\Chris\Desktop\AEMS\bin\AEMS.pdb
+C:\Users\Chris\Desktop\AEMS\obj\Debug\AEMS.dll
+C:\Users\Chris\Desktop\AEMS\obj\Debug\AEMS.pdb
+C:\Users\Chris\Desktop\AEMS\obj\Debug\AEMS.csprojResolveAssemblyReference.cache
