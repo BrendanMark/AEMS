@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Utilities;
 using System.Data.SqlClient;
 using System.Data;
 namespace AEMS
@@ -12,7 +11,7 @@ namespace AEMS
     public partial class createEvent : System.Web.UI.Page
     {
         //connect to database
-        DBConnect objDB = new DBConnect();
+        Connection objDB = new Connection();
         SqlCommand objCommand = new SqlCommand();
 
         protected void Page_Load(object sender, EventArgs e)
