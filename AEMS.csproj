@@ -330,9 +330,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj">
       <Project>{69b824ed-a03c-4bc1-809c-2a8cd1076ed5}</Project>
       <Name>ClassLibrary</Name>
+=======
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{8b4b64b3-29c6-4b05-ad4c-bc5748229cfa}</Project>
+      <Name>Utilities</Name>
+>>>>>>> Development
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

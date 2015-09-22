@@ -4,8 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+<<<<<<< HEAD
 using ClassLibrary;
 
+=======
+//using ClassLibrary;
+using Utilities;
+>>>>>>> Development
 
 using System.Data;
 using System.Data.SqlClient;
@@ -15,7 +20,7 @@ namespace AEMS
     {
         Connection connection = new Connection();
         Event updateEvent = new Event();
-        Location eventLocation = new Location();
+        //Location eventLocation = new Location();
         Event_Owner owner = new Event_Owner();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -206,12 +211,12 @@ namespace AEMS
             }
             updateEvent.eventName = txtEventName.Text;
             owner.FirstName = txtEventOwner.Text;
-            eventLocation.StreetAddress1 = txtStreetAddress1.Text;
-            eventLocation.StreetAddress2 = txtStreetAddress2.Text;
-            eventLocation.Building = txtBuildingName.Text;
-            eventLocation.LocationRoomNumber = txtRoomNumber.Text;
-            eventLocation.City = txtCity.Text;
-            eventLocation.Zipcode =int.Parse( txtZipCode.Text);
+            //eventLocation.StreetAddress1 = txtStreetAddress1.Text;
+            //eventLocation.StreetAddress2 = txtStreetAddress2.Text;
+            //eventLocation.Building = txtBuildingName.Text;
+            //eventLocation.LocationRoomNumber = txtRoomNumber.Text;
+            //eventLocation.City = txtCity.Text;
+            //eventLocation.Zipcode =int.Parse( txtZipCode.Text);
         }
         }
     }
