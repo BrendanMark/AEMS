@@ -10,9 +10,9 @@ namespace AEMS
         private int adminID;
         private string adminFirstName;
         private string adminLastName;
-        private string email;
-        private string phoneNumb;
-        private bool superAdmin;
+        //private string email;
+        //private string phoneNumb;
+        //private bool superAdmin;
 
         public string AdminFirstName
         {
