@@ -28,9 +28,9 @@ namespace AEMS
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            //SaveMainEventOwner();
+            SaveMainEventOwner();
             //SaveEvent();
-            SaveLocation();
+            //SaveLocation();
             SaveSponsor();
             SavePanelList();
             SaveSubEventLocation();
