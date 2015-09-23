@@ -571,67 +571,67 @@ namespace AEMS {
         protected global::System.Web.UI.WebControls.TextBox txtSubRoomNumber;
         
         /// <summary>
-        /// txtSponsorName control.
+        /// txtSubEventSponsorName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSponsorName;
+        protected global::System.Web.UI.WebControls.TextBox txtSubEventSponsorName;
         
         /// <summary>
-        /// txtSponsorEmail control.
+        /// txtSubEventSponsorEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSponsorEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtSubEventSponsorEmail;
         
         /// <summary>
-        /// rdbSponsorUniversityPartner control.
+        /// rdbSubEventSponsorUniversityPartner control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rdbSponsorUniversityPartner;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdbSubEventSponsorUniversityPartner;
         
         /// <summary>
-        /// btnAddSponsor control.
+        /// btnSubEventAddSponsor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAddSponsor;
+        protected global::System.Web.UI.WebControls.LinkButton btnSubEventAddSponsor;
         
         /// <summary>
-        /// txtCoSponsorName control.
+        /// txtSubEventCoSponsorName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCoSponsorName;
+        protected global::System.Web.UI.WebControls.TextBox txtSubEventCoSponsorName;
         
         /// <summary>
-        /// txtCoSponsorEmail control.
+        /// txtSubEventCoSponsorEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCoSponsorEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtSubEventCoSponsorEmail;
         
         /// <summary>
-        /// rbnCoSponsorUniversityPartner control.
+        /// rbnSubEventCoSponsorUniversityPartner control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rbnCoSponsorUniversityPartner;
+        protected global::System.Web.UI.WebControls.RadioButtonList rbnSubEventCoSponsorUniversityPartner;
         
         /// <summary>
         /// btnAddCoSponsor control.
@@ -652,49 +652,49 @@ namespace AEMS {
         protected global::System.Web.UI.WebControls.LinkButton btnAddPanelist;
         
         /// <summary>
-        /// txtPanelistFirstName control.
+        /// txtSubEventPanelistFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPanelistFirstName;
+        protected global::System.Web.UI.WebControls.TextBox txtSubEventPanelistFirstName;
         
         /// <summary>
-        /// txtPanelistLastName control.
+        /// txtSubEventPanelistLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPanelistLastName;
+        protected global::System.Web.UI.WebControls.TextBox txtSubEventPanelistLastName;
         
         /// <summary>
-        /// txtPanelistEmail control.
+        /// txtSubEventPanelistEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPanelistEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtSubEventPanelistEmail;
         
         /// <summary>
-        /// txtPanelistPhoneNumber control.
+        /// txtSubEventPanelistPhoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPanelistPhoneNumber;
+        protected global::System.Web.UI.WebControls.TextBox txtSubEventPanelistPhoneNumber;
         
         /// <summary>
-        /// txtPanelistRole control.
+        /// txtSubEventPanelistRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPanelistRole;
+        protected global::System.Web.UI.WebControls.TextBox txtSubEventPanelistRole;
         
         /// <summary>
         /// CheckBox4 control.
