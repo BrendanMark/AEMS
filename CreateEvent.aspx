@@ -380,7 +380,7 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" onsubmit="onSave()">
 
         <%--  Code for navigation bar--%>
         <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
@@ -407,7 +407,6 @@
             </div>
         </div>
         <%-- Code for navigation bar ends--%>
-
         <%--Code for instructions and Event Information panel--%>
          <div class="container">
             <h4 class="auto-style3">Information About Creating Event</h4>
@@ -432,18 +431,18 @@
                              <div class="col-sm-4">
                                 <div class="form-group">
                                     <label class="control-label">Event Start Time<span style="color: red">*</span></label>       
-                                    <div class="bfh-timepicker" data-mode="12h">
-                                       <%-- <asp:TextBox runat="server" type="text" ID="starttimepicker" name="stp"></asp:TextBox>--%>
-                                        <input id="starttimepicker" type="text" name="st" />
+                                    <div class="bfh-timepicker" id="starttimepicker"data-mode="12h">
+                                        <%-- <asp:TextBox runat="server" type="text" ID="starttimepicker" name="stp"></asp:TextBox>--%>
+                                        <input type="text" name="st" />
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Event Start Date<span style="color: red">*</span></label>
-                                    <div class="bfh-datepicker">
+                                    <div class="bfh-datepicker" id="startdatepicker">
                                         <%--<asp:TextBox ID ="startdatepicker" runat="server" type="text" form="form"></asp:TextBox>--%>
-                                        <input id="startdatepicker" type="text" data-name="sdp" />
+                                        <input  type="text" data-name="sdp" />
                                     </div>
                                 </div>
                             </div>
@@ -475,18 +474,18 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label class="control-label">Event End Time<span style="color: red">*</span></label>
-                                    <div class="bfh-timepicker" data-mode="12h">
+                                    <div class="bfh-timepicker" id ="endtimepicker"  data-mode="12h">
                                         <%--<asp:TextBox runat="server" type="text" ID="endtimepicker"></asp:TextBox>--%>
-                                        <input id="endtimepicker" type="text" name="etp" />
+                                        <input type="text" name="etp" runat="server" />
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label class="control-label">Event End Date<span style="color: red">*</span></label>
-                                    <div class="bfh-datepicker">
+                                    <div class="bfh-datepicker" role="textbox" id="enddatepicker">
                                         <%--<asp:TextBox runat="server" type="text" ID="enddatepicker"></asp:TextBox>--%>
-                                        <input id="enddatepicker" type="text" name="edp" />
+                                        <input type="text" name="edp" />
                                     </div>
                                 </div>
                             </div>
@@ -943,8 +942,7 @@
                                 </div>
                             </div>
                         </div></div>
-                        <%--Event Sponsor Panel Ends--%>
-
+        <%--Event Sponsor Panel Ends--%>
         <%--Sub Event Panelist Panel Starts--%>
         <div class="container">
                         <div class="panel-group" id="MainEventPanelist">
@@ -980,8 +978,7 @@
                             </div>
                         </div>
                     </div> 
-<%--Sub Event Panelist Panel Ends--%>
-
+        <%--Sub Event Panelist Panel Ends--%>
 
 
 
@@ -1068,8 +1065,7 @@
  </div></div></div></div> </div>
                                 </div>
                             </div></div></div>
-                            <%--Category panel end--%>
-
+                             <%--Category panel end--%>
                             <%--Event Overview--%>
 
                             <div class="col-md-4">
@@ -1375,7 +1371,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <%--post event panel--%>
+                             <%--post event panel--%>
                             <div class="col-md-4">
                                 <div class="panel-group" id="accordion7">
                                     <div class="panel panel-default">
@@ -1423,7 +1419,6 @@
                 </div>
             </div>
         <%--event overview panel end--%>
-
          <%--Adding Task Panel--%>
         <div class="container">
         <div class="panel-group" id="accordion14">
@@ -1455,7 +1450,6 @@
                             </div>
                         </div>
                         <%--End Panel For Catering--%>
-
                         <%--Start Panel for Entertainment--%>
                         <div class="panel-group" id="accordion16">
                             <div class="panel panel-default">
@@ -1530,8 +1524,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <%--Sub Event Detail Panel Ends--%>
-                        
+                            <%--Sub Event Detail Panel Ends--%>                        
 
                         <%--Sub Event Owner Panel Starts--%>
                         <div class="panel-group" id="accordion10">
@@ -1562,8 +1555,7 @@
                                 </div>
                             </div>
                         </div>
-                        <%--Sub Event Owner Panel Ends--%>
-
+                            <%--Sub Event Owner Panel Ends--%>
                         <%--Sub Event Location Panel Starts--%>
                         <div class="panel-group" id="accordion11">
                             <div class="panel panel-default">
@@ -1605,8 +1597,7 @@
                                 </div>
                             </div>
                         </div>
-                        <%--Sub Event Location Panel Ends--%>
-
+                            <%--Sub Event Location Panel Ends--%>
                         <%--Sub Event Sponsor Panel Starts--%>
                         <div class="panel-group" id="accordion12">
                             <div class="panel panel-default">
@@ -1657,8 +1648,7 @@
                                 </div>
                             </div>
                         </div>
-                        <%--Sub Event Sponsor Panel Ends--%>
-
+                            <%--Sub Event Sponsor Panel Ends--%>
                         <%--Sub Event Panelist Panel Starts--%>
                         <div class="panel-group" id="accordion13">
                             <div class="panel panel-default">
@@ -1693,7 +1683,6 @@
                             </div>
                         </div>
                             <%--End panel for panelist--%>
-
                              <%--Adding Task Panel--%>
         <div class="panel-group" id="SubEventTask">
             <div class="panel panel-default">
@@ -1724,7 +1713,6 @@
                             </div>
                         </div>
                         <%--End Panel For Catering--%>
-
                         <%--Start Panel for Entertainment--%>
                         <div class="panel-group" id="SEEntertainment">
                             <div class="panel panel-default">
@@ -1755,10 +1743,18 @@
                         </div>
                     </div>
             </div>
-            <%--Sub Event Panel Ends--%>
-        <%--Sub Event Panel Ends--%>
+        <%--Sub Event Panel Ends--%>        <%--Sub Event Panel Ends--%>
         <div class="container">
-            <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
+            <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click"  />
+            <%--<asp:Button ID="btnTest" runat="server" OnClick="getdate()" Text="Button" />--%>
+            <asp:Label ID="lblTest" runat="server" Text="Label"></asp:Label>
+
+            <%--<script>
+                function getdate() {
+                    var d = $('enddatepicker').datepicker('getDate');
+                }
+            </script>--%>
+              
         </div>
        
         <%--footer for pages--%>
@@ -1834,7 +1830,37 @@
             </div>
         </footer>
         <%-- end of footer--%>
-
+        <asp:HiddenField ID="hdnEndDatePicker" runat="server" />
+        <asp:HiddenField ID="hdnStartDatePicker" runat="server" />
+        <asp:HiddenField ID="hdnStartTimePicker" runat="server" />
+        <asp:HiddenField ID="hdnEndTimePicker" runat="server" />
     </form>
+
+    <script>
+        function onSave()
+        {
+            copyEndDate();
+            copyStartDate();
+            copyStartTime();
+            copyEndTime();
+        }
+        function copyEndDate() {
+            var value = document.querySelector('#enddatepicker div input').value;
+            document.getElementById('hdnEndDatePicker').value = value;
+        }
+        function copyStartDate() {
+            var value = document.querySelector('#startdatepicker div input').value;
+            document.getElementById('hdnStartDatePicker').value = value;
+        }
+        function copyEndTime() {
+            var value = document.querySelector('#endtimepicker div input').value;
+            document.getElementById('hdnEndTimePicker').value = value;
+        }
+        function copyStartTime() {
+            var value = document.querySelector('#starttimepicker div input').value;
+            document.getElementById('hdnStartTimePicker').value = value;
+        }
+
+    </script>
 </body>
 </html>

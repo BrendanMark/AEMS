@@ -16,6 +16,7 @@ namespace AEMS
         SqlCommand objCommand = new SqlCommand();
         SqlCommand SaveSponserobjCommand = new SqlCommand();
         SqlCommand SavePanelListobjCommand = new SqlCommand();
+        SqlCommand SaveSubEventDetailsCommand = new SqlCommand();
         SqlCommand SaveSubEventLocationCommand = new SqlCommand();
         SqlCommand SaveSubEventSponserCommand = new SqlCommand();
         SqlCommand SaveSubEventPanelistCommand = new SqlCommand();
@@ -31,7 +32,7 @@ namespace AEMS
         protected void btnSave_Click(object sender, EventArgs e)
         {
             //SaveMainEventOwner();
-            //SaveEvent();
+            SaveEvent();
             SaveLocation();
             SaveSponsor();
             SavePanelList();
@@ -53,8 +54,11 @@ namespace AEMS
 
         }
 
+
         public void SaveEvent()
         {
+            
+            
             //string startDate = Request.Form["sdp"];
             string dob = Convert.ToString(Request.Form["sdp"]);
             //string startDate = Request.Form["startdatepicker.UniqueID"];
@@ -66,10 +70,10 @@ namespace AEMS
             objCommand.CommandText = strSQL;
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.Parameters.AddWithValue("@EventName", txtEventName.Text);
-            //objCommand.Parameters.AddWithValue("@StartDate", dob);
-            objCommand.Parameters.AddWithValue("@EndDate", endDate);
-            objCommand.Parameters.AddWithValue("@StartTime", startTime);
-            objCommand.Parameters.AddWithValue("@EndTime", endTime);
+            objCommand.Parameters.AddWithValue("@StartDate", hdnStartDatePicker.Value);
+            objCommand.Parameters.AddWithValue("@EndDate", hdnEndDatePicker.Value);
+            objCommand.Parameters.AddWithValue("@StartTime", hdnStartTimePicker.Value);
+            objCommand.Parameters.AddWithValue("@EndTime", hdnEndTimePicker.Value);
             objCommand.Parameters.AddWithValue("@EventCategory", chkAlumniSociety.Text);
             objDB.DoUpdateUsingCmdObj(objCommand);
         }
@@ -120,20 +124,20 @@ namespace AEMS
             objDB.DoUpdateUsingCmdObj(SavePanelListobjCommand);
         }
 
-        //public void SaveSubEventDetails()
-        //{
-        //    string strSQL = "CreatePanellist";
-        //    SaveEventDetailsCommand.CommandText = strSQL;
-        //    SaveEventDetailsCommand.CommandType = CommandType.StoredProcedure;
+        public void SaveSubEventDetails()
+        {
+            string strSQL = "CreatePanellist";
+            SaveSubEventDetailsCommand.CommandText = strSQL;
+            SaveSubEventDetailsCommand.CommandType = CommandType.StoredProcedure;
 
-        //    SaveEventDetailsCommand.Parameters.AddWithValue("@", txtEventPanelistFirstName.Text);
-        //    SaveEventDetailsCommand.Parameters.AddWithValue("@PanelistEmail", txtEventPanellistEmail.Text);
-        //    SaveEventDetailsCommand.Parameters.AddWithValue("@PanelistPhoneNumber", txtEventPanelistPhoneNumber.Text);
-        //    SaveEventDetailsCommand.Parameters.AddWithValue("@PanelistLastName", txtEventPanelistLastName.Text);
-        //    SaveEventDetailsCommand.Parameters.AddWithValue("@PanelistRole", txtEventPanelistRole.Text);
+            SaveSubEventDetailsCommand.Parameters.AddWithValue("@", txtEventPanelistFirstName.Text);
+            SaveSubEventDetailsCommand.Parameters.AddWithValue("@PanelistEmail", txtEventPanellistEmail.Text);
+            SaveSubEventDetailsCommand.Parameters.AddWithValue("@PanelistPhoneNumber", txtEventPanelistPhoneNumber.Text);
+            SaveSubEventDetailsCommand.Parameters.AddWithValue("@PanelistLastName", txtEventPanelistLastName.Text);
+            SaveSubEventDetailsCommand.Parameters.AddWithValue("@PanelistRole", txtEventPanelistRole.Text);
 
-        //    objDB.DoUpdateUsingCmdObj(SaveEventDetailsCommand);
-        //}
+            objDB.DoUpdateUsingCmdObj(SaveSubEventDetailsCommand);
+        }
 
 
 
@@ -197,6 +201,12 @@ namespace AEMS
             SaveSubEventPanelistCommand.Parameters.AddWithValue("@SubEventPanelistRole", txtSubEventPanelistRole.Text);
 
             objDB.DoUpdateUsingCmdObj(SaveSubEventPanelistCommand);
+        }
+
+        protected void btnTest_Click(object sender, EventArgs e)
+        {
+           
+            
         }
 
 
