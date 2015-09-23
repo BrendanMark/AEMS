@@ -1617,36 +1617,36 @@
                                     <div class="panel-body">
                                         <div class="col-md-4">
                                             <label class="control-label">Sponsor Name<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtSponsorName" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtSubEventSponsorName" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Email<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtSponsorEmail" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtSubEventSponsorEmail" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-2">
                                             <label class="control-label">University Partner?<span style="color: red">*</span></label>
-                                            <asp:RadioButtonList ID="rdbSponsorUniversityPartner" runat="server" RepeatDirection="Horizontal">
-                                                <asp:ListItem>Yes</asp:ListItem>
-                                                <asp:ListItem>No</asp:ListItem>
+                                            <asp:RadioButtonList ID="rdbSubEventSponsorUniversityPartner" runat="server" RepeatDirection="Horizontal">
+                                                <asp:ListItem Text="Yes" Value="1">Yes</asp:ListItem>
+                                                <asp:ListItem Text="No" Value="0">No</asp:ListItem>
                                             </asp:RadioButtonList>
                                         </div>
                                         <div class="col-md-2">
                                             <label class="control-label">Add Sponsor</label><br />
-                                            <asp:LinkButton ID="btnAddSponsor" runat="server" class="glyphicon glyphicon-plus"></asp:LinkButton>
+                                            <asp:LinkButton ID="btnSubEventAddSponsor" runat="server" class="glyphicon glyphicon-plus"></asp:LinkButton>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Co-Sponsor Name<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtCoSponsorName" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtSubEventCoSponsorName" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Email<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtCoSponsorEmail" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtSubEventCoSponsorEmail" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-2">
                                             <label class="control-label">University Partner?<span style="color: red">*</span></label>
-                                            <asp:RadioButtonList ID="rbnCoSponsorUniversityPartner" runat="server" RepeatDirection="Horizontal">
-                                                <asp:ListItem>Yes</asp:ListItem>
-                                                <asp:ListItem>No</asp:ListItem>
+                                            <asp:RadioButtonList ID="rbnSubEventCoSponsorUniversityPartner" runat="server" RepeatDirection="Horizontal">
+                                                <asp:ListItem Text="Yes" Value="1">Yes</asp:ListItem>
+                                                <asp:ListItem Text="No" Value="0">No</asp:ListItem>
                                             </asp:RadioButtonList>
                                         </div>
                                         <div class="col-md-2">
@@ -1670,23 +1670,23 @@
                                     <div class="panel-body">
                                         <div class="col-md-4">
                                             <label class="control-label">First Name<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtPanelistFirstName" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtSubEventPanelistFirstName" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Last Name<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtPanelistLastName" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtSubEventPanelistLastName" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Email<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtPanelistEmail" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtSubEventPanelistEmail" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Phone Number<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtPanelistPhoneNumber" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtSubEventPanelistPhoneNumber" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Role<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtPanelistRole" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtSubEventPanelistRole" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
