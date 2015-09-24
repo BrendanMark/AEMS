@@ -398,7 +398,7 @@
                         </li>
                         <li class="active"><a href="CreateEvent.aspx">Create Event</a>
                         </li>
-                        <li><a href="ManageEvent.aspx">View/Manage Event</a>
+                        <li><a href="ViewEvent.aspx">View/Manage Event</a>
                         </li>
                         <li><a href="CreateReport.aspx">Create Report</a>
                         </li>

@@ -19,7 +19,7 @@ namespace AEMS
             // fills are gridview with all the events when page is loaded for the first time
             if (!IsPostBack)
             {
-                
+
                 SqlCommand objCommand = new SqlCommand();
                 if (IsPostBack == false)
                 {
@@ -41,7 +41,7 @@ namespace AEMS
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Attributes.Add("onMouseOver", "this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#ea4335';this.style.cursor='pointer';");
+                e.Row.Attributes.Add("onMouseOver", "this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#75A3FF';this.style.cursor='pointer';");
                 e.Row.Attributes.Add("OnMouseOut", "this.style.backgroundColor=this.originalstyle;");
             }
         }
@@ -59,7 +59,7 @@ namespace AEMS
                 objCommand.Parameters.AddWithValue("@EventName", searchFor);
 
                 DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
-                
+
                 if (myDS.Tables[0].Rows.Count == 0)   // if there were no enteries returned by the database it means there were no events matching the search criteria
                 {
                     lblDisplay.Visible = true;
@@ -75,97 +75,11 @@ namespace AEMS
             }
         }
 
-        protected void ddlEventCategory_SelectedIndexChanged(object sender, EventArgs e)
+        protected void ddlStartDate_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string category = ddlEventCategory.SelectedValue;   // string entered by user to search for an event
-            if (category != String.Empty)                      // if user entered a word to search for an event following code will run else error will be displayed
-            {
-                lblDisplay.Visible = false;
 
-                // Set the SQLCommand object's properties for executing a Stored Procedure
-                objCommand.CommandType = CommandType.StoredProcedure;
-                objCommand.CommandText = "SearchEventByCategory";
-                objCommand.Parameters.AddWithValue("@EventCategory", category);
-
-                DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
-
-                if (myDS.Tables[0].Rows.Count == 0)   // if there were no enteries returned by the database it means there were no events matching the search criteria
-                {
-                    lblDisplay.Visible = true;
-                    lblDisplay.Text = "No Events found";
-                }
-                gvEvents.DataSource = myDS;
-                gvEvents.DataBind();
-            }
-            else
-            {
-                lblDisplay.Visible = true;
-                lblDisplay.Text = "Please select a category to find the events";
-            }
         }
 
-        protected void ddlOwnerLastName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string ownerLastName = ddlOwnerLastName.SelectedValue; // string entered by user to search for an event
-            if (ownerLastName != String.Empty)                      // if user entered a word to search for an event following code will run else error will be displayed
-            {
-                lblDisplay.Visible = false;
-
-                // Set the SQLCommand object's properties for executing a Stored Procedure
-                objCommand.CommandType = CommandType.StoredProcedure;
-                objCommand.CommandText = "SearchEventByOwnerLastName";
-                objCommand.Parameters.AddWithValue("@OwnerLastName", ownerLastName);
-
-                DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
-
-                if (myDS.Tables[0].Rows.Count == 0)   // if there were no enteries returned by the database it means there were no events matching the search criteria
-                {
-                    lblDisplay.Visible = true;
-                    lblDisplay.Text = "No Events found";
-                }
-                gvEvents.DataSource = myDS;
-                gvEvents.DataBind();
-            }
-            else
-            {
-                lblDisplay.Visible = true;
-                lblDisplay.Text = "Please select owner's last name to find the events";
-            }
-        }
-
-        protected void ddlDate_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        protected void ddlEventName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string eventName = ddlEventName.SelectedValue;      // string entered by user to search for an event
-            if (eventName != String.Empty)                      // if user entered a word to search for an event following code will run else error will be displayed
-            {
-                lblDisplay.Visible = false;
-
-                // Set the SQLCommand object's properties for executing a Stored Procedure
-                objCommand.CommandType = CommandType.StoredProcedure;
-                objCommand.CommandText = "SearchEventByName";
-                objCommand.Parameters.AddWithValue("@EventName", eventName);
-
-                DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
-
-                if (myDS.Tables[0].Rows.Count == 0)   // if there were no enteries returned by the database it means there were no events matching the search criteria
-                {
-                    lblDisplay.Visible = true;
-                    lblDisplay.Text = "No Events found";
-                }
-                gvEvents.DataSource = myDS;
-                gvEvents.DataBind();
-            }
-            else
-            {
-                lblDisplay.Visible = true;
-                lblDisplay.Text = "Please select owner's last name to find the events";
-            }
-        }
 
         // Finds out which row was selected and finds the EventID of that particular Event
         protected void gvEvents_RowCommand(Object sender, GridViewCommandEventArgs e)
@@ -187,6 +101,194 @@ namespace AEMS
             // retrieve the product ID from datakeynames (this property stores the primary key of the grid view without displaying it)
             //int productID = Convert.ToInt32(gvProducts.DataKeys[rowIndex].Value.ToString());
         }
+
+        protected void btnGo_Click(object sender, EventArgs e)
+        {
+            if (ddlEventCategory.SelectedValue != String.Empty && ddlOwnerLastName.SelectedValue != String.Empty)
+            {
+                string category = ddlEventCategory.SelectedValue;      // string entered by user to search for an event
+                string ownerLastName = ddlOwnerLastName.SelectedValue; // string entered by user to search for an event
+                if (category != String.Empty && ownerLastName != String.Empty)                      // if user entered a word to search for an event following code will run else error will be displayed
+                {
+                    lblDisplay.Visible = false;
+
+                    // Set the SQLCommand object's properties for executing a Stored Procedure
+                    objCommand.CommandType = CommandType.StoredProcedure;
+                    objCommand.CommandText = "SearchEventByCategoryAndOwnerLastName";
+                    objCommand.Parameters.AddWithValue("@EventCategory", category);
+                    objCommand.Parameters.AddWithValue("@OwnerLastName", ownerLastName);
+
+                    DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+                    if (myDS.Tables[0].Rows.Count == 0)   // if there were no enteries returned by the database it means there were no events matching the search criteria
+                    {
+                        lblDisplay.Visible = true;
+                        lblDisplay.Text = "No Events found";
+                    }
+                    gvEvents.DataSource = myDS;
+                    gvEvents.DataBind();
+                }
+                else
+                {
+                    lblDisplay.Visible = true;
+                    lblDisplay.Text = "Please select owner's last name to find the events";
+                }
+            }
+            else if (ddlEventCategory.SelectedValue != String.Empty && ddlEventName.SelectedValue != String.Empty)
+            {
+                string category = ddlEventCategory.SelectedValue;      // string entered by user to search for an event
+                string eventName = ddlEventName.Text; // string entered by user to search for an event
+                if (category != String.Empty && eventName != String.Empty)                      // if user entered a word to search for an event following code will run else error will be displayed
+                {
+                    lblDisplay.Visible = false;
+
+                    // Set the SQLCommand object's properties for executing a Stored Procedure
+                    objCommand.CommandType = CommandType.StoredProcedure;
+                    objCommand.CommandText = "SearchEventByCategoryAndEventName";
+                    objCommand.Parameters.AddWithValue("@EventCategory", category);
+                    objCommand.Parameters.AddWithValue("@EventName", eventName);
+
+                    DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+                    if (myDS.Tables[0].Rows.Count == 0)   // if there were no enteries returned by the database it means there were no events matching the search criteria
+                    {
+                        lblDisplay.Visible = true;
+                        lblDisplay.Text = "No Events found";
+                    }
+                    gvEvents.DataSource = myDS;
+                    gvEvents.DataBind();
+                }
+                else            // Should this be removed????????????????????????????????????????????????????
+                {
+                    lblDisplay.Visible = true;
+                    lblDisplay.Text = "Please select owner's last name to find the events";
+                }
+            }
+            else if (ddlOwnerLastName.SelectedValue != String.Empty && ddlEventName.SelectedValue != String.Empty)
+            {
+                string ownerLastName = ddlOwnerLastName.SelectedValue;      // string entered by user to search for an event
+                string eventName = ddlEventName.Text; // string entered by user to search for an event
+                if (ownerLastName != String.Empty && eventName != String.Empty)                      // if user entered a word to search for an event following code will run else error will be displayed
+                {
+                    lblDisplay.Visible = false;
+
+                    // Set the SQLCommand object's properties for executing a Stored Procedure
+                    objCommand.CommandType = CommandType.StoredProcedure;
+                    objCommand.CommandText = "SearchEventByEventNameAndOwnerLastName";
+                    objCommand.Parameters.AddWithValue("@OwnerLastName", ownerLastName);
+                    objCommand.Parameters.AddWithValue("@EventName", eventName);
+
+                    DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+                    if (myDS.Tables[0].Rows.Count == 0)   // if there were no enteries returned by the database it means there were no events matching the search criteria
+                    {
+                        lblDisplay.Visible = true;
+                        lblDisplay.Text = "No Events found";
+                    }
+                    gvEvents.DataSource = myDS;
+                    gvEvents.DataBind();
+                }
+                else            // Should this be removed????????????????????????????????????????????????????
+                {
+                    lblDisplay.Visible = true;
+                    lblDisplay.Text = "Please select owner's last name to find the events";
+                }
+            }
+            else
+            {
+                // if user selected the event category, then following code runs
+                if (ddlEventCategory.SelectedValue != String.Empty)
+                {
+                    string category = ddlEventCategory.SelectedValue;   // string entered by user to search for an event
+                    if (category != String.Empty)                      // if user entered a word to search for an event following code will run else error will be displayed
+                    {
+                        lblDisplay.Visible = false;
+
+                        // Set the SQLCommand object's properties for executing a Stored Procedure
+                        objCommand.CommandType = CommandType.StoredProcedure;
+                        objCommand.CommandText = "SearchEventByCategory";
+                        objCommand.Parameters.AddWithValue("@EventCategory", category);
+
+                        DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+                        if (myDS.Tables[0].Rows.Count == 0)   // if there were no enteries returned by the database it means there were no events matching the search criteria
+                        {
+                            lblDisplay.Visible = true;
+                            lblDisplay.Text = "No Events found";
+                        }
+                        gvEvents.DataSource = myDS;
+                        gvEvents.DataBind();
+                    }
+                    else
+                    {
+                        lblDisplay.Visible = true;
+                        lblDisplay.Text = "Please select a category to find the events";
+                    }
+                }
+                else if (ddlOwnerLastName.SelectedValue != String.Empty)
+                {
+                    string ownerLastName = ddlOwnerLastName.SelectedValue; // string entered by user to search for an event
+                    if (ownerLastName != String.Empty)                      // if user entered a word to search for an event following code will run else error will be displayed
+                    {
+                        lblDisplay.Visible = false;
+
+                        // Set the SQLCommand object's properties for executing a Stored Procedure
+                        objCommand.CommandType = CommandType.StoredProcedure;
+                        objCommand.CommandText = "SearchEventByOwnerLastName";
+                        objCommand.Parameters.AddWithValue("@OwnerLastName", ownerLastName);
+
+                        DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+                        if (myDS.Tables[0].Rows.Count == 0)   // if there were no enteries returned by the database it means there were no events matching the search criteria
+                        {
+                            lblDisplay.Visible = true;
+                            lblDisplay.Text = "No Events found";
+                        }
+                        gvEvents.DataSource = myDS;
+                        gvEvents.DataBind();
+                    }
+                    else
+                    {
+                        lblDisplay.Visible = true;
+                        lblDisplay.Text = "Please select owner's last name to find the events";
+                    }
+                }
+                else if (ddlEventName.SelectedValue != String.Empty)
+                {
+                    string eventName = ddlEventName.SelectedValue;      // string entered by user to search for an event
+                    if (eventName != String.Empty)                      // if user entered a word to search for an event following code will run else error will be displayed
+                    {
+                        lblDisplay.Visible = false;
+
+                        // Set the SQLCommand object's properties for executing a Stored Procedure
+                        objCommand.CommandType = CommandType.StoredProcedure;
+                        objCommand.CommandText = "SearchEventByName";
+                        objCommand.Parameters.AddWithValue("@EventName", eventName);
+
+                        DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+                        if (myDS.Tables[0].Rows.Count == 0)   // if there were no enteries returned by the database it means there were no events matching the search criteria
+                        {
+                            lblDisplay.Visible = true;
+                            lblDisplay.Text = "No Events found";
+                        }
+                        gvEvents.DataSource = myDS;
+                        gvEvents.DataBind();
+                    }
+                    else
+                    {
+                        lblDisplay.Visible = true;
+                        lblDisplay.Text = "Please select owner's last name to find the events";
+                    }
+                }
+
+            } //end of main else
+        }// end of GO button
+
+        protected void btnDateGo_Click(object sender, EventArgs e)
+        {
+            String startDate = Page.Request.Form["startDate"];
+        } 
 
     }
 }
