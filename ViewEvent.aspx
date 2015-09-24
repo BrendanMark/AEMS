@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewEvent.aspx.cs" Inherits="AEMS.ViewEvent"  %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewEvent.aspx.cs" Inherits="AEMS.ViewEvent" %>
 
 <!-- Latest compiled and minified CSS -->
 <link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -12,6 +12,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script>
+        $(function StartDate() {
+            $("#startDate").datepicker();
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#endDate").datepicker();
+        });
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -19,7 +33,8 @@
         <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#"><img src="templeowl.png" height="75" width="75" /></a>
+                    <a class="navbar-brand" href="#">
+                        <img src="templeowl.png" height="75" width="75" /></a>
                     <%--<a class="navbar-brand" href="#"><img src="TempleT.png" height="50" width="50" /></a>--%>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
                         <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
@@ -42,7 +57,7 @@
         <%-- Code for navigation bar ends--%>
 
         <%--Code for the panel containing search and gridview--%>
-        <div class="container">           
+        <div class="container">
             <div class="col-lg-12">
                 <h4 style="color: #a41e35"><b>Find and select events to export them to Excel Spreadsheet</b></h4>
                 <div class="panel panel-default">
@@ -59,51 +74,52 @@
                     <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn-sm btn-primary" OnClick="btnSearch_Click" />
                             <br />
                             <h2 style="font-weight: bold">Or</h2>
-                            
+
 
                             <div style="border: 0px solid #a41e35; text-align: center">
 
                                 <asp:Label ID="Label5" runat="server" Text="Event Category" Font-Bold="true"></asp:Label>
-                                <asp:DropDownList ID="ddlEventCategory" runat="server" Height="20px" DataSourceID="ddlEventTypeDS" DataTextField="EventCategory" DataValueField="EventCategory" AutoPostBack="true" OnSelectedIndexChanged="ddlEventCategory_SelectedIndexChanged">
+                                <asp:DropDownList ID="ddlEventCategory" runat="server" Height="20px" DataSourceID="ddlEventTypeDS" DataTextField="EventCategory" DataValueField="EventCategory">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="ddlEventTypeDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT DISTINCT [EventCategory] FROM [Event]"></asp:SqlDataSource>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                                 <asp:Label ID="Label1" runat="server" Text="Owner Last Name" Font-Bold="true"></asp:Label>
-                                <asp:DropDownList ID="ddlOwnerLastName" runat="server" Height="20px" DataSourceID="ddlOwnerDS" DataTextField="OwnerLastName" DataValueField="OwnerLastName" AutoPostBack="true" OnSelectedIndexChanged="ddlOwnerLastName_SelectedIndexChanged">
+                                <asp:DropDownList ID="ddlOwnerLastName" runat="server" Height="20px" DataSourceID="ddlOwnerDS" DataTextField="OwnerLastName" DataValueField="OwnerLastName">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="ddlOwnerDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT DISTINCT [OwnerLastName] FROM [Event_Owner]"></asp:SqlDataSource>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                                <asp:Label ID="Label2" runat="server" Text="Date" Font-Bold="true"></asp:Label>
-                                <asp:DropDownList ID="ddlDate" runat="server" Height="20px" DataSourceID="ddlDateDS" DataTextField="StartDate" DataValueField="StartDate" AutoPostBack="true" OnSelectedIndexChanged="ddlDate_SelectedIndexChanged">
-                                </asp:DropDownList>
-                                <asp:SqlDataSource ID="ddlDateDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT DISTINCT [StartDate] FROM [Event]"></asp:SqlDataSource>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                
                                 <asp:Label ID="Label3" runat="server" Text="Event Name" Font-Bold="true"></asp:Label>
-                                <asp:DropDownList ID="ddlEventName" runat="server" Height="20px" DataSourceID="ddlEventDS" DataTextField="EventName" DataValueField="EventName" AutoPostBack="true" OnSelectedIndexChanged="ddlEventName_SelectedIndexChanged">                                   
+                                <asp:DropDownList ID="ddlEventName" runat="server" Height="20px" DataSourceID="ddlEventDS" DataTextField="EventName" DataValueField="EventName">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="ddlEventDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT DISTINCT [EventName] FROM [Event]"></asp:SqlDataSource>
-                                &nbsp;
-                                
-                                <br />
-                                <br />
+                                &nbsp;                              
 
+                                <asp:Button ID="btnGo" runat="server" Text="Go" CssClass="btn-sm btn-primary" OnClick="btnGo_Click" />
+                                <h2 style="font-weight: bold">Or</h2>
                             </div>
 
-                            &nbsp&nbsp&nbsp&nbsp
-        
+                            <div class="form-inline" style="text-align: center">
+                            <asp:Label ID="lblStartDate" runat="server" Text="StartDate" Font-Bold="true"></asp:Label>
+                            <input type="text" id="startDate" readonly="true">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Label ID="lblEndDate" runat="server" Text="EndDate" Font-Bold="true"></asp:Label>
+                            <input type="text" id="endDate" readonly="true">
+                                &nbsp;&nbsp;
+                                <asp:Button ID="btnDateGo" runat="server" Text="Go" CssClass="btn-sm btn-primary" OnClick="btnDateGo_Click" />
+                            </div>
+                        <br />
                         </div>
 
                         <%--Grid View for the events--%>
                         <asp:GridView ID="gvEvents" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnRowDataBound="gvEvents_RowDataBound" OnRowCommand="gvEvents_RowCommand" OnRowDeleting="gvEvents_RowDeleting">
                             <Columns>
-                                <asp:BoundField HeaderText="EventName" DataField="EventName" SortExpression="EventName"/>
-                                <asp:BoundField HeaderText="StartDate" DataField="StartDate" SortExpression="StartDate"/>
-                                <asp:BoundField HeaderText="StartTime" DataField="StartTime" SortExpression="StartTime"/>
-                                <asp:BoundField HeaderText="OwnerFirstName" DataField="OwnerFirstName" SortExpression="OwnerFirstName"/>
-                                <asp:BoundField HeaderText="OwnerLastName" DataField="OwnerLastName" SortExpression="OwnerLastName"/>
+                                <asp:BoundField HeaderText="EventName" DataField="EventName" SortExpression="EventName" />
+                                <asp:BoundField HeaderText="StartDate" DataField="StartDate" SortExpression="StartDate" />
+                                <asp:BoundField HeaderText="StartTime" DataField="StartTime" SortExpression="StartTime" />
+                                <asp:BoundField HeaderText="OwnerFirstName" DataField="OwnerFirstName" SortExpression="OwnerFirstName" />
+                                <asp:BoundField HeaderText="OwnerLastName" DataField="OwnerLastName" SortExpression="OwnerLastName" />
 
                                 <asp:TemplateField HeaderText="View Detail" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
