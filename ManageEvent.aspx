@@ -599,8 +599,8 @@
                                         <div class="col-md-2">
                                             <label class="control-label">University Partner?<span style="color: red">*</span></label>
                                             <asp:RadioButtonList ID="rblSponsorUniversityPartner" runat="server" RepeatDirection="Horizontal" Enabled="false">
-                                                <asp:ListItem>Yes</asp:ListItem>
-                                                <asp:ListItem>No</asp:ListItem>
+                                                <asp:ListItem Value ="yes">Yes</asp:ListItem>
+                                                <asp:ListItem Value="no">No</asp:ListItem>
                                             </asp:RadioButtonList>
                                         </div>
                                         <div class="col-md-2">
@@ -618,8 +618,8 @@
                                         <div class="col-md-2">
                                             <label class="control-label">University Partner?<span style="color: red">*</span></label>
                                             <asp:RadioButtonList ID="rblCoSponsorUniversityPartner" runat="server" RepeatDirection="Horizontal" Enabled="False">
-                                                <asp:ListItem>Yes</asp:ListItem>
-                                                <asp:ListItem>No</asp:ListItem>
+                                                <asp:ListItem Value="yes">Yes</asp:ListItem>
+                                                <asp:ListItem Value="no">No</asp:ListItem>
                                             </asp:RadioButtonList>
                                         </div>
                                         <div class="col-md-2">
@@ -1133,19 +1133,19 @@
                                     <div class="panel-body">
                                         <div class="col-md-4">
                                             <label class="control-label">Owner First Name<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtOwnerFirstName" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                            <asp:TextBox ID="txtSubEventOwnerFirstName" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Owner Last Name<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtOwnerLastName" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                            <asp:TextBox ID="txtSubEventOwnerLastName" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">E-mail<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                            <asp:TextBox ID="txtSubEventOwnerEmail" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label">Phone Number<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtPhoneNumber" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                            <asp:TextBox ID="txtSubEventOwnerPhoneNumber" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>

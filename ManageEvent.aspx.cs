@@ -19,14 +19,30 @@ namespace AEMS
             if (!IsPostBack)
             {
                 int eventID = 5;
-                int ownerID = 6;
+                //int ownerID = 6;
                 //int sponsorID = 1;
-                
+                //int panelistID = 1;
+                DataSet subIDs = new DataSet();
                 getEventName(eventID);
                 getEventLocation(eventID);
-                getEventOwner(eventID, ownerID);
-                //getEventSponsors(eventID, sponsorID);
-
+                getEventOwner(eventID);
+                getEventSponsors(eventID);
+                getEvenPanelist(eventID);
+                subIDs = getSubEventIDs(eventID);
+                if (subIDs.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i > subIDs.Tables[0].Rows.Count; i++)
+                    {
+                        getSubEventDetails(i);
+                        getSubEventLocation(i);
+                        getSubEventOwner(i);
+                        //Event panelist is being saved to SubEvent panelist right now have to fix
+                    }
+                }
+                else
+                {
+                    txtSubEventName.Text = "There are no sub events for this event";
+                }
                 
                 
                 
@@ -36,7 +52,8 @@ namespace AEMS
             }
         }
 
-        public void getEventOwner(int eventID, int ownerID)
+        //Gets the Event Owner that and fills in the event owner text box
+        public void getEventOwner(int eventID)
         {
             string firstName;
             string lastName;
@@ -45,7 +62,7 @@ namespace AEMS
             getEventOwner.CommandType = CommandType.StoredProcedure;
             getEventOwner.CommandText = "GetEventOwner";
             getEventOwner.Parameters.AddWithValue("@EventID", eventID);
-            getEventOwner.Parameters.AddWithValue("@OwnerID", ownerID);
+            //getEventOwner.Parameters.AddWithValue("@OwnerID", ownerID);
             DataSet dsOwner = connection.GetDataSetUsingCmdObj(getEventOwner);
             firstName = dsOwner.Tables[0].Rows[0]["OwnerFirstName"].ToString();
             lastName = dsOwner.Tables[0].Rows[0]["OwnerLastName"].ToString();
@@ -53,6 +70,7 @@ namespace AEMS
             txtEventOwner.Text = fullName;
         }
 
+        //Gets the event name from the eventID and fills in the corresponding text boxes
         public void getEventName(int eventID)
         {
             
@@ -64,6 +82,7 @@ namespace AEMS
             txtEventName.Text = ds.Tables[0].Rows[0]["EventName"].ToString();
         }
 
+        //Gets the event location from the eventID and fills in the corresponding text boxes
         public void getEventLocation(int eventID)
         {
             
@@ -80,19 +99,116 @@ namespace AEMS
             txtZipCode.Text = dsLocation.Tables[0].Rows[0]["ZipCode"].ToString();
         }
 
-        public void getEventSponsors(int eventID, int sponsorID)
+        //Gets the event Sponsors from event id and populates the corresponding text boxes
+        public void getEventSponsors(int eventID)
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "GetEventSponsor";
             objCommand.Parameters.AddWithValue("@EventID", eventID);
-            objCommand.Parameters.AddWithValue("@SponsorID", sponsorID);
-            DataSet ds = new DataSet();
-            txtSponsorName.Text = ds.Tables[0].Rows[0]["SponserName"].ToString();
-            txtSponsorEmail.Text = ds.Tables[0].Rows[0]["SponsorEmail"].ToString();
-            txtCoSponsorName.Text = ds.Tables[0].Rows[0]["CoSponserName"].ToString();
-            txtCoSponsorEmail.Text = ds.Tables[0].Rows[0]["CoSponsorEmail"].ToString();
+            //objCommand.Parameters.AddWithValue("@SponsorID", sponsorID);
+            DataSet ds = connection.GetDataSetUsingCmdObj(objCommand);
+            if (ds.Tables[0].Rows.Count != 0)
+            {
+                txtSponsorName.Text = ds.Tables[0].Rows[0]["SponserName"].ToString();
+                txtSponsorEmail.Text = ds.Tables[0].Rows[0]["SponsorEmail"].ToString();
+                txtEventCoSponsorName.Text = ds.Tables[0].Rows[0]["CoSponserName"].ToString();
+                txtEventCoSponsorEmail.Text = ds.Tables[0].Rows[0]["CoSponsorEmail"].ToString();
+                if (ds.Tables[0].Rows[0]["UniversityPartner"].ToString() == "true")
+                {
+                    rblSponsorUniversityPartner.SelectedValue = "yes";
+                }
+                else {
+                    rblSponsorUniversityPartner.SelectedValue = "no";
+                }
+                if (ds.Tables[0].Rows[0]["CoUniversityPartner"].ToString() == "true")
+                {
+                    rblCoSponsorUniversityPartner.SelectedValue = "yes";
+                }
+                else
+                {
+                    rblCoSponsorUniversityPartner.SelectedValue = "no";
+                }
+            }
+            else
+            {
+                txtSponsorName.Text = "There are no Sponsors";
+            }
         }
+
+        //Gets the panelist for the event from eventID and populates the corresponding text boxes
+        public void getEvenPanelist(int eventID)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "GetEventPanelist";
+            objCommand.Parameters.AddWithValue("@EventID", eventID);
+            //objCommand.Parameters.AddWithValue("@PanelistID", panelistID);
+            DataSet ds = connection.GetDataSetUsingCmdObj(objCommand);
+            txtPanelistFirstName.Text = ds.Tables[0].Rows[0]["PanelistFirstName"].ToString();
+            txtPanelistLastName.Text = ds.Tables[0].Rows[0]["PanelistLastName"].ToString();
+            txtPanelistEmail.Text = ds.Tables[0].Rows[0]["PanelistEmail"].ToString();
+            txtPanelistRole.Text = ds.Tables[0].Rows[0]["PanelistRole"].ToString();
+            txtPanelistPhoneNumber.Text = ds.Tables[0].Rows[0]["PanelistPhoneNumber"].ToString();
+        }
+
+        //Gets the All the SubEventIDs that are associated with one event
+        public DataSet getSubEventIDs(int eventID)
+        {
+            
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "GetSubEventIDs";
+            objCommand.Parameters.AddWithValue("@EventID", eventID);
+            DataSet ds = connection.GetDataSetUsingCmdObj(objCommand);
+            return ds;
+        }
+
+        //Gets the subEvent details from the subevent ID and fills in the text boxes
+        public void getSubEventDetails(int subeventID)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "GetSubEventInfo";
+            objCommand.Parameters.AddWithValue("@SubEventID", subeventID);
+            DataSet ds = connection.GetDataSetUsingCmdObj(objCommand);
+            txtSubEventName.Text = ds.Tables[0].Rows[0]["SubEventName"].ToString();
+            txtRegistrationUrl.Text = ds.Tables[0].Rows[0]["RegistratioinURL"].ToString();
+        }
+
+        //Gets the sub Event location from the subEventID and fills in the text boxes
+        public void getSubEventLocation(int subEventID)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "GetSubEventLocation";
+            objCommand.Parameters.AddWithValue("@SubEventID", subEventID);
+            DataSet ds = connection.GetDataSetUsingCmdObj(objCommand);
+            txtSubBuildingName.Text = ds.Tables[0].Rows[0]["SubEventBuildingName"].ToString();
+            txtSubCity.Text = ds.Tables[0].Rows[0]["SubEventCity"].ToString();
+            txtSubRoomNumber.Text = ds.Tables[0].Rows[0]["SubEventRoomNumber"].ToString();
+            txtSubState.Text = ds.Tables[0].Rows[0]["SubEventState"].ToString();
+            txtSubStreetAddress1.Text = ds.Tables[0].Rows[0]["SubEventStreetAddress1"].ToString();
+            txtSubStreetAddress2.Text = ds.Tables[0].Rows[0]["SubEventStreetAddress2"].ToString();
+            txtSubZipCode.Text = ds.Tables[0].Rows[0]["SubEventZipCode"].ToString();
+
+        }
+
+        //Gets the subEventOwners and fills in the text boxes
+        public void getSubEventOwner(int subEventID)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "GetSubEventOwner";
+            objCommand.Parameters.AddWithValue("@SubEventID", subEventID);
+            DataSet ds = connection.GetDataSetUsingCmdObj(objCommand);
+            txtSubEventOwnerEmail.Text = ds.Tables[0].Rows[0]["OwnerEmail"].ToString();
+            txtSubEventOwnerFirstName.Text = ds.Tables[0].Rows[0]["OwnerFirstName"].ToString();
+            txtSubEventOwnerLastName.Text = ds.Tables[0].Rows[0]["OwnerLastName"].ToString();
+            txtSubEventOwnerPhoneNumber.Text = ds.Tables[0].Rows[0]["OwnerPhoneNumber"].ToString();
+        }
+
+
         protected void btnEdit_Click(object sender, EventArgs e)
         {
   
@@ -114,7 +230,7 @@ namespace AEMS
             txtElectronicDisplay.Enabled = true;
             txtEventSponsorName.Enabled = true;
             txtEventSponsorEmail.Enabled = true;
-            txtEmail.Enabled = true;
+            txtSubEventOwnerEmail.Enabled = true;
             txtEmailBlast.Enabled = true;
             txtEventListing.Enabled = true;
             txtEventName.Enabled = true;
@@ -131,8 +247,8 @@ namespace AEMS
             txtNetExpense.Enabled = true;
             txtNetProfit.Enabled = true;
             txtNotes.Enabled = true;
-            txtOwnerFirstName.Enabled = true;
-            txtOwnerLastName.Enabled = true;
+            txtSubEventOwnerFirstName.Enabled = true;
+            txtSubEventOwnerLastName.Enabled = true;
             txtPanelistEmail.Enabled = true;
             txtPanelistFirstName.Enabled = true;
             txtPanelistLastName.Enabled = true;
@@ -140,7 +256,7 @@ namespace AEMS
             txtPanelistRole.Enabled = true;
             txtPanelMember.Enabled = true;
             txtParking.Enabled = true;
-            txtPhoneNumber.Enabled = true;
+            txtSubEventOwnerPhoneNumber.Enabled = true;
             txtPhotography.Enabled = true;
             txtPlanningTimeline.Enabled = true;
             txtPostcards.Enabled = true;

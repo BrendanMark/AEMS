@@ -1192,40 +1192,40 @@ namespace AEMS {
         protected global::System.Web.UI.WebControls.LinkButton btnAddAdditionalOwners;
         
         /// <summary>
-        /// txtOwnerFirstName control.
+        /// txtSubEventOwnerFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOwnerFirstName;
+        protected global::System.Web.UI.WebControls.TextBox txtSubEventOwnerFirstName;
         
         /// <summary>
-        /// txtOwnerLastName control.
+        /// txtSubEventOwnerLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOwnerLastName;
+        protected global::System.Web.UI.WebControls.TextBox txtSubEventOwnerLastName;
         
         /// <summary>
-        /// txtEmail control.
+        /// txtSubEventOwnerEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtSubEventOwnerEmail;
         
         /// <summary>
-        /// txtPhoneNumber control.
+        /// txtSubEventOwnerPhoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPhoneNumber;
+        protected global::System.Web.UI.WebControls.TextBox txtSubEventOwnerPhoneNumber;
         
         /// <summary>
         /// btnAddSubEventLocation control.
