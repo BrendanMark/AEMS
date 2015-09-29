@@ -82,9 +82,11 @@ namespace AEMS
 
 
         // Finds out which row was selected and finds the EventID of that particular Event
-        protected void gvEvents_RowCommand(Object sender, GridViewCommandEventArgs e)
-        {
-            //int rowIndex = e.RowIndex;
+        protected void gvEvents_RowCommand(Object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
+        {     
+            int rowIndex = Convert.ToInt16(e.CommandArgument);
+            int eventID = Convert.ToInt32(gvEvents.DataKeys[rowIndex].Value.ToString());
+            Session["EventID"] = eventID;
         }
 
         // Finds out which row was selected and finds the EventID of that particular Event to delete it
@@ -288,6 +290,7 @@ namespace AEMS
         protected void btnDateGo_Click(object sender, EventArgs e)
         {
             String startDate = Page.Request.Form["startDate"];
+            string s = Request.Form["startDate"];  
         } 
 
     }
