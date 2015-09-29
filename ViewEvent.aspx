@@ -19,6 +19,8 @@
     <script>
         $(function StartDate() {
             $("#startDate").datepicker();
+            var value = $("#startDate").val();
+            document.getElementById(StartDate).valueOf();
         });
     </script>
     <script>
@@ -113,24 +115,27 @@
                         </div>
 
                         <%--Grid View for the events--%>
-                        <asp:GridView ID="gvEvents" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnRowDataBound="gvEvents_RowDataBound" OnRowCommand="gvEvents_RowCommand" OnRowDeleting="gvEvents_RowDeleting">
+                        <asp:GridView ID="gvEvents" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnRowDataBound="gvEvents_RowDataBound" OnRowCommand="gvEvents_RowCommand" OnRowDeleting="gvEvents_RowDeleting" DataKeyNames="EventID">
                             <Columns>
-                                <asp:BoundField HeaderText="EventName" DataField="EventName" SortExpression="EventName" />
-                                <asp:BoundField HeaderText="StartDate" DataField="StartDate" SortExpression="StartDate" />
-                                <asp:BoundField HeaderText="StartTime" DataField="StartTime" SortExpression="StartTime" />
-                                <asp:BoundField HeaderText="OwnerFirstName" DataField="OwnerFirstName" SortExpression="OwnerFirstName" />
-                                <asp:BoundField HeaderText="OwnerLastName" DataField="OwnerLastName" SortExpression="OwnerLastName" />
+                                <asp:BoundField HeaderText="EventName" DataField="EventName" SortExpression="EventName" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue" />
+                                <asp:BoundField HeaderText="StartDate" DataField="StartDate" SortExpression="StartDate" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue" />
+                                <asp:BoundField HeaderText="StartTime" DataField="StartTime" SortExpression="StartTime" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue" />
+                                <asp:BoundField HeaderText="OwnerFirstName" DataField="OwnerFirstName" SortExpression="OwnerFirstName" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue" />
+                                <asp:BoundField HeaderText="OwnerLastName" DataField="OwnerLastName" SortExpression="OwnerLastName" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue" />
 
-                                <asp:TemplateField HeaderText="View Detail" ItemStyle-HorizontalAlign="Center">
+                                <asp:TemplateField HeaderText="View Detail" ItemStyle-HorizontalAlign="Center" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="btnViewEvent" runat="server"><i class="glyphicon glyphicon-eye-open"></i></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Delete" ItemStyle-HorizontalAlign="Center">
+                                <asp:TemplateField HeaderText="Delete" ItemStyle-HorizontalAlign="Center" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="btnDeleteEvent" runat="server" OnClick="btnDeleteEvent_Click"><i class="glyphicon glyphicon-trash"></i></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+
+                            <asp:CommandField ShowSelectButton="true" ButtonType="Button" HeaderText="View Detail" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue" ></asp:CommandField>
+                            <asp:CommandField ButtonType="Button" ShowDeleteButton="true" HeaderText="Delete" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue" />
                             </Columns>
                         </asp:GridView>
 
