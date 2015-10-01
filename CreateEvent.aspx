@@ -1079,44 +1079,40 @@
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkGoal" value="" />Goal</label>
-                                                    <input id="txtGoal" type="text" />
+                                                    <asp:TextBox id="txtGoal" runat="server" CssClass="form-control input-sm" />
                                                 </div>
 
 
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" id="chkVenue" value="" />Venue</label>
-                                                    <input id="txtVenue" type="text" />
-                                                </div>
+                                              
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkEventURL" value="" />Event URL</label>
-                                                    <input id="txtEventURL" type="text" />
+                                                    <asp:TextBox id="txtEventURL" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkFees" value=""/>Fees</label>
-                                                    <input id="txtFees" type="text" />
+                                                    <asp:TextBox id="txtFees" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkAttendeeCapacity" value=""/>Attendee capactiy</label>
-                                                    <input id="txtAttendeeCapacity" type="text" />
+                                                    <asp:TextBox id="txtAttendeeCapacity" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkPreRegistrationNumber" value=""/>Pre Event Registration Number</label>
-                                                    <input id="txtPreRegistrationNumber" type="text" />
+                                                    <asp:TextBox id="txtPreRegistrationNumber" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkPostRegistrationNumber" value=""/>Post Event Registration Number</label>
-                                                    <input id="txtPostRegistrationNumber" type="text" />
+                                                    <asp:TextBox id="txtPostRegistrationNumber" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkPlanningTimeline" value=""/>Planning timeline</label>
-                                                    <input id="txtPlanningTimeline" type="text" />
+                                                    <asp:TextBox id="txtPlanningTimeline" runat="server" CssClass="form-control input-sm" />
                                                 </div>
 
                                             </div>
@@ -1851,16 +1847,16 @@
         function copyStartDate() {
             var value = document.querySelector('#startdatepicker div input').value;
             document.getElementById('hdnStartDatePicker').value = value;
-        
-        function copyEndTime() {
-            var value = document.querySelector('#endtimepicker div input').value;
-            document.getElementById('hdnEndTimePicker').value = value;
-        }
-        function copyStartTime() {
-            var value = document.querySelector('#starttimepicker div input').value;
-            document.getElementById('hdnStartTimePicker').value = value;
-        }
 
+            function copyEndTime() {
+                var value = document.querySelector('#endtimepicker div input').value;
+                document.getElementById('hdnEndTimePicker').value = value;
+            }
+            function copyStartTime() {
+                var value = document.querySelector('#starttimepicker div input').value;
+                document.getElementById('hdnStartTimePicker').value = value;
+            }
+        }
     </script>
 </body>
 </html>
