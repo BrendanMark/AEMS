@@ -32,13 +32,14 @@ namespace AEMS
         protected void btnSave_Click(object sender, EventArgs e)
         {
             //SaveMainEventOwner();
-            SaveEvent();
-            SaveLocation();
-            SaveSponsor();
-            SavePanelList();
-            SaveSubEventLocation();
-            SaveSubEventSponsor();
-            SaveSubEventPanelist();
+            //SaveEvent();
+            //SaveLocation();
+            //SaveSponsor();
+            //SavePanelList();
+            //SaveSubEventLocation();
+            //SaveSubEventSponsor();
+            //SaveSubEventPanelist();
+            SaveEventOverview();
         }
 
         public void SaveMainEventOwner()
@@ -201,6 +202,23 @@ namespace AEMS
             SaveSubEventPanelistCommand.Parameters.AddWithValue("@SubEventPanelistRole", txtSubEventPanelistRole.Text);
 
             objDB.DoUpdateUsingCmdObj(SaveSubEventPanelistCommand);
+        }
+
+        public void SaveEventOverview()
+        {
+            
+            string strSQL = "CreateEventOverview";
+            objCommand.CommandText = strSQL;
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.Parameters.AddWithValue("@Goal", txtGoal.Text);
+            objCommand.Parameters.AddWithValue("@EventURL", txtEventURL.Text);
+            objCommand.Parameters.AddWithValue("@Fees", float.Parse(txtFees.Text));
+            objCommand.Parameters.AddWithValue("@AttendeeCapacity", int.Parse(txtAttendeeCapacity.Text));
+            objCommand.Parameters.AddWithValue("@PreRegNumber", int.Parse(txtPreRegistrationNumber.Text));
+            objCommand.Parameters.AddWithValue("@PostRegNumber", int.Parse(txtPostRegistrationNumber.Text));
+            objCommand.Parameters.AddWithValue("@PlanningTimeline",txtPlanningTimeline.Text);
+            objDB.DoUpdateUsingCmdObj(objCommand);
+
         }
 
         protected void btnTest_Click(object sender, EventArgs e)
