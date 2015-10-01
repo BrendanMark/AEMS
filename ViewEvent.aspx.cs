@@ -290,9 +290,14 @@ namespace AEMS
 
         protected void btnDateGo_Click(object sender, EventArgs e)
         {
-            DateTime endDate = Convert.ToDateTime(Request.Form["sdp"]);
-            string s = hdnStartDatePicker.Value;
-        } 
+            // to get the start date
+            DateTime startDate = DateTime.Parse(hdnStartDatePicker.Value);
+
+            // to get end date
+            DateTime endDate = DateTime.Parse(hdnEndDatePicker.Value);
+
+
+        }
 
     }
 }
