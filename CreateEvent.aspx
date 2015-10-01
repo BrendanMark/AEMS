@@ -1310,57 +1310,57 @@
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkTechnologySupport" value=""/>Technology Support</label>
-                                                    <input id="txtTechnologySupport" type="text" />
+                                                    <asp:TextBox id="txtTechnologySupport" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkAudioVideo" value=""/>Audio/Video</label>
-                                                    <input id="txtAudioVideo" type="text" />
+                                                    <asp:TextBox id="txtAudioVideo" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkDecorations" value=""/>Decortations</label>
-                                                    <input id="txtDecorations" type="text" />
+                                                    <asp:TextBox id="txtDecorations" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkPhotography" value=""/>Photography</label>
-                                                    <input id="txtPhotography" type="text" />
+                                                    <asp:TextBox id="txtPhotgraphy" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkTechnology" value=""/>Technology</label>
-                                                    <input id="txtTechnology" type="text" />
+                                                    <asp:TextBox id="txtTechnology" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkGiveaway" value=""/>Giveaways</label>
-                                                    <input id="txtGiveaway" type="text" />
+                                                    <asp:TextBox id="txtGiveaway" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkTravelArrangements" value=""/>Travel Arrangements</label>
-                                                    <input id="txtTravelArrangements" type="text" />
+                                                    <asp:TextBox id="txtTravelArrangements" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkParking" value=""/>Parking</label>
-                                                    <input id="txtParking" type="text" />
+                                                    <asp:TextBox id="txtParking" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkSecurity" value=""/>Security</label>
-                                                    <input id="txtSecurity" type="text" />
+                                                    <asp:TextBox id="txtSecurity" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkRegistrationItem" value=""/>Registrations Items</label>
-                                                    <input id="txtRegistrationItem" type="text" />
+                                                    <asp:TextBox id="txtRegistrationItem" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkSupplies" value=""/>Supplies</label>
-                                                    <input id="txtSupplies" type="text" />
+                                                    <asp:TextBox id="txtSupplies" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                             </div>
                                         </div>
