@@ -1847,11 +1847,11 @@
         function copyEndDate() {
             var value = document.querySelector('#enddatepicker div input').value;
             document.getElementById('hdnEndDatePicker').value = value;
-        }
+        }   
         function copyStartDate() {
             var value = document.querySelector('#startdatepicker div input').value;
             document.getElementById('hdnStartDatePicker').value = value;
-        }
+        
         function copyEndTime() {
             var value = document.querySelector('#endtimepicker div input').value;
             document.getElementById('hdnEndTimePicker').value = value;
