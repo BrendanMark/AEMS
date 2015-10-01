@@ -9,6 +9,20 @@
 <%--style sheet reference for footer--%>
 <link type="text/css" rel="stylesheet" href="http://www.temple.edu/sites/temple/files/css/css_OCCCxEXLcOWEYOLZIlp4WFqVS4zcfvLRB6D_bEd9x50.css" media="screen" />
 
+<%--script for pickers to work--%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<%--Script for accordion to work--%>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<%--jquery script for country, state, timezone picker--%>
+<link href="BootstrapPickerMaster/dist/css/bootstrap-formhelpers.min.css" rel="stylesheet" />
+<script src="BootstrapPickerMaster/dist/js/bootstrap-formhelpers.min.js"></script>
+
+<%--jquery script, needed for all javascript to work--%>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
@@ -17,11 +31,7 @@
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script>
-        $(function StartDate() {
-            $("#startDate").datepicker();
-            var value = $("#startDate").val();
-            document.getElementById(StartDate).valueOf();
-        });
+
     </script>
     <script>
         $(function () {
@@ -103,39 +113,42 @@
                             </div>
 
                             <div class="form-inline" style="text-align: center">
-                            <asp:Label ID="lblStartDate" runat="server" Text="StartDate" Font-Bold="true"></asp:Label>
-                            <input type="text" id="startDate" readonly="true">
+                                <asp:Label ID="lblStartDate" runat="server" Text="StartDate" Font-Bold="true"></asp:Label>
+                                <div class="bfh-datepicker" id="startdatepicker">
+                                        <%--<asp:TextBox ID ="startdatepicker" runat="server" type="text" form="form"></asp:TextBox>--%>
+                                        <input  type="text" data-name="sdp"/>
+                                    </div>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Label ID="lblEndDate" runat="server" Text="EndDate" Font-Bold="true"></asp:Label>
-                            <input type="text" id="endDate" readonly="true">
+                                <input type="text" id="endDate" readonly="true">
                                 &nbsp;&nbsp;
-                                <asp:Button ID="btnDateGo" runat="server" Text="Go" CssClass="btn-sm btn-primary" OnClick="btnDateGo_Click" />
+                                <asp:Button ID="btnDateGo" runat="server" Text="Go" CssClass="btn-sm btn-primary" OnClientClick="return OnSave()" OnClick="btnDateGo_Click" />
                             </div>
-                        <br />
+                            <br />
                         </div>
 
                         <%--Grid View for the events--%>
                         <asp:GridView ID="gvEvents" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnRowDataBound="gvEvents_RowDataBound" OnRowCommand="gvEvents_RowCommand" OnRowDeleting="gvEvents_RowDeleting" DataKeyNames="EventID">
                             <Columns>
-                                <asp:BoundField HeaderText="EventName" DataField="EventName" SortExpression="EventName" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue" />
-                                <asp:BoundField HeaderText="StartDate" DataField="StartDate" SortExpression="StartDate" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue" />
-                                <asp:BoundField HeaderText="StartTime" DataField="StartTime" SortExpression="StartTime" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue" />
-                                <asp:BoundField HeaderText="OwnerFirstName" DataField="OwnerFirstName" SortExpression="OwnerFirstName" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue" />
-                                <asp:BoundField HeaderText="OwnerLastName" DataField="OwnerLastName" SortExpression="OwnerLastName" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue" />
+                                <asp:BoundField HeaderText="EventName" DataField="EventName" SortExpression="EventName" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
+                                <asp:BoundField HeaderText="StartDate" DataField="StartDate" SortExpression="StartDate" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
+                                <asp:BoundField HeaderText="StartTime" DataField="StartTime" SortExpression="StartTime" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
+                                <asp:BoundField HeaderText="OwnerFirstName" DataField="OwnerFirstName" SortExpression="OwnerFirstName" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
+                                <asp:BoundField HeaderText="OwnerLastName" DataField="OwnerLastName" SortExpression="OwnerLastName" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
 
-                                <asp:TemplateField HeaderText="View Detail" ItemStyle-HorizontalAlign="Center" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue">
+                                <asp:TemplateField HeaderText="View Detail" ItemStyle-HorizontalAlign="Center" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="btnViewEvent" runat="server"><i class="glyphicon glyphicon-eye-open"></i></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Delete" ItemStyle-HorizontalAlign="Center" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue">
+                                <asp:TemplateField HeaderText="Delete" ItemStyle-HorizontalAlign="Center" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="btnDeleteEvent" runat="server" OnClick="btnDeleteEvent_Click"><i class="glyphicon glyphicon-trash"></i></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                            <asp:CommandField ShowSelectButton="true" ButtonType="Button" HeaderText="View Detail" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue" ></asp:CommandField>
-                            <asp:CommandField ButtonType="Button" ShowDeleteButton="true" HeaderText="Delete" HeaderStyle-BackColor="LightGreen" HeaderStyle-ForeColor="DarkBlue" />
+                                <asp:CommandField ShowSelectButton="true" ButtonType="Button" HeaderText="View Detail" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White"></asp:CommandField>
+                                <asp:CommandField ButtonType="Button" ShowDeleteButton="true" HeaderText="Delete" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
                             </Columns>
                         </asp:GridView>
 
@@ -146,6 +159,7 @@
                 </div>
             </div>
         </div>
+        <asp:HiddenField ID="hdnStartDatePicker" runat="server" />
     </form>
 </body>
 
@@ -230,3 +244,20 @@
         </div>
     </div>
 </footer>
+
+    <script>
+        function onSave() {
+            copyEndDate();
+            copyStartDate();
+            copyStartTime();
+            copyEndTime();
+        }
+        function copyEndDate() {
+            var value = document.querySelector('#enddatepicker div input').value;
+            document.getElementById('hdnEndDatePicker').value = value;
+        }
+        function copyStartDate() {
+            var value = document.querySelector('#startdatepicker input').value;
+            document.getElementById('hdnStartDatePicker').value = value;
+        }
+    </script>

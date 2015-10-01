@@ -276,6 +276,7 @@ namespace AEMS
                         }
                         gvEvents.DataSource = myDS;
                         gvEvents.DataBind();
+                        ddlEventName.Items.Insert(0, new ListItem(string.Empty, string.Empty));
                     }
                     else
                     {
@@ -289,8 +290,8 @@ namespace AEMS
 
         protected void btnDateGo_Click(object sender, EventArgs e)
         {
-            String startDate = Page.Request.Form["startDate"];
-            string s = Request.Form["startDate"];  
+            DateTime endDate = Convert.ToDateTime(Request.Form["sdp"]);
+            string s = hdnStartDatePicker.Value;
         } 
 
     }
