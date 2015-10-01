@@ -52,7 +52,7 @@
         $("input#txtContract").hide();
         $("input#txtNetProfit").hide();
         $("input#txtNetExpense").hide();
-        $("input#txtTargetAudience").hide();
+        $("input#txtTargetedAudience").hide();
         $("input#txtEventStaff").hide();
         $("input#txtProgramParticipant").hide();
         $("input#txtAlumniSpeaker").hide();
@@ -174,11 +174,11 @@
         else {
             $("input#txtNetExpense").hide();
         }
-        if ($("input#chkTargetAudience").is(':checked')) {
-            $("input#txtTargetAudience").show();
+        if ($("input#chkTargetedAudience").is(':checked')) {
+            $("input#txtTargetedAudience").show();
         }
         else {
-            $("input#txtTargetAudience").hide();
+            $("input#txtTargetedAudience").hide();
         }
         if ($("input#chkEventStaff").is(':checked')) {
             $("input#txtEventStaff").show();
@@ -1066,6 +1066,7 @@
                                 </div>
                             </div></div></div>
                              <%--Category panel end--%>
+
                             <%--Event Overview--%>
 
                             <div class="col-md-4">
@@ -1076,6 +1077,12 @@
                                         </div>
                                         <div id="collapsetwo" class="panel-collapse collapse out">
                                             <div class="panel-body">
+
+                                                 <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" id="chkTargetedAudience" value=""/>Targeted Audience</label>
+                                                    <asp:TextBox id="txtTargetedAudience" runat="server" CssClass="form-control input-sm" />
+                                                </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkGoal" value="" />Goal</label>
@@ -1168,7 +1175,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <%--<div class="col-md-4">
                                 <div class="panel-group" id="accordion4">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
@@ -1179,11 +1186,7 @@
                                         <div id="collapseFour" class="panel-collapse collapse out">
                                             <div class="panel-body">
                                                 
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" id="chkTargetAudience" value=""/>Targeted Audience</label>
-                                                    <input id="txtTargetAudience" type="text" />
-                                                </div>
+                                               
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkEventStaff" value=""/>Event Staff</label>
@@ -1220,7 +1223,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>--%>
 
                             <%--Marketing panel--%>
                             <div class="col-md-4">
@@ -1236,54 +1239,53 @@
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkPreEventCorr" value=""/>Pre-Event correspondence</label>
-                                                    <input id="txtPreEventCorr" type="text" />
-                                                </div>
-                                                <%--sub fields?--%>
+                                                    <asp:TextBox id="txtPreEventCorr" runat="server" CssClass="form-control input-sm" />
+                                                </div>     
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkPostEventCorr" value=""/>Post-Event correspondence</label>
-                                                    <input id="txtPostEventCorr" type="text" />
+                                                    <asp:TextBox id="txtPostEventCorr" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkEmailBlast" value=""/>Email blast</label>
-                                                    <input id="txtEmailBlast" type="text" />
+                                                    <asp:TextBox id="txtEmailBlast" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkEventListing" value=""/>Event Listing</label>
-                                                    <input id="txtEventListing" type="text" />
+                                                    <asp:TextBox id="txtEventListing" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                               
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkSocialMedia" value=""/>Social Media</label>
-                                                    <input id="txtSocialMedia" type="text" />
+                                                    <asp:TextBox id="txtSocialMedia" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkFlyers" value=""/>Flyers</label>
-                                                    <input id="txtFlyers" type="text" />
+                                                    <asp:TextBox id="txtFlyers" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkPosters" value=""/>Posters</label>
-                                                    <input id="txtPosters" type="text" />
+                                                    <asp:TextBox id="txtPosters" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkPostcards" value=""/>Postcards</label>
-                                                    <input id="txtPostcards" type="text" />
+                                                    <asp:TextBox id="txtPostcards" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkElectronicDisplay" value=""/>Electronic display</label>
-                                                    <input id="txtElectronicDisplay" type="text" />
+                                                    <asp:TextBox id="txtElectronicDisplay" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkSignage" value=""/>Signage</label>
-                                                    <input id="txtSignage" type="text" />
+                                                    <asp:TextBox id="txtSignage" runat="server" CssClass="form-control input-sm" />
                                                 </div>
 
 

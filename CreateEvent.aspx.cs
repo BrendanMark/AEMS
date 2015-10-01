@@ -40,7 +40,8 @@ namespace AEMS
             //SaveSubEventSponsor();
             //SaveSubEventPanelist();
             //SaveEventOverview();
-            SaveBudget();
+            //SaveBudget();
+            SaveMarketingCommunication();
         }
 
         public void SaveMainEventOwner()
@@ -211,6 +212,7 @@ namespace AEMS
             string strSQL = "CreateEventOverview";
             objCommand.CommandText = strSQL;
             objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.Parameters.AddWithValue("@TargetedAudience", txtTargetedAudience.Text);
             objCommand.Parameters.AddWithValue("@Goal", txtGoal.Text);
             objCommand.Parameters.AddWithValue("@EventURL", txtEventURL.Text);
             objCommand.Parameters.AddWithValue("@Fees", float.Parse(txtFees.Text));
@@ -237,8 +239,24 @@ namespace AEMS
             objDB.DoUpdateUsingCmdObj(objCommand);
 
         }
-    
 
+        public void SaveMarketingCommunication()
+        {
+            string strSQL = "CreateMarketingCommunication";
+            objCommand.CommandText = strSQL;
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.Parameters.AddWithValue("@PreEventCorr", txtPreEventCorr.Text);
+            objCommand.Parameters.AddWithValue("@PostEventCorr", txtPostEventCorr.Text);
+            objCommand.Parameters.AddWithValue("@EmailBlast", txtEmailBlast.Text);
+            objCommand.Parameters.AddWithValue("@EventListing", txtEventListing.Text);
+            objCommand.Parameters.AddWithValue("@SocialMedia", txtSocialMedia.Text);
+            objCommand.Parameters.AddWithValue("@Flyers", txtFlyers.Text);
+            objCommand.Parameters.AddWithValue("@Posters", txtPosters.Text);
+            objCommand.Parameters.AddWithValue("@Postcards", txtPostcards.Text);
+            objCommand.Parameters.AddWithValue("@ElectronicDisplay", txtElectronicDisplay.Text);
+            objCommand.Parameters.AddWithValue("@Signage", txtSignage.Text);
+            objDB.DoUpdateUsingCmdObj(objCommand);
+        }
     
 
         protected void btnTest_Click(object sender, EventArgs e)
