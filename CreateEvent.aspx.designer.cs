@@ -445,6 +445,60 @@ namespace AEMS {
         protected global::System.Web.UI.WebControls.TextBox txtPlanningTimeline;
         
         /// <summary>
+        /// txtAnticipatedAttendee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAnticipatedAttendee;
+        
+        /// <summary>
+        /// txtActualAttendee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtActualAttendee;
+        
+        /// <summary>
+        /// txtCostPerAttendee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCostPerAttendee;
+        
+        /// <summary>
+        /// txtContract control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtContract;
+        
+        /// <summary>
+        /// txtNetProfit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNetProfit;
+        
+        /// <summary>
+        /// txtNetExpense control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNetExpense;
+        
+        /// <summary>
         /// chkPizza control.
         /// </summary>
         /// <remarks>

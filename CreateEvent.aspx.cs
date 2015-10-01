@@ -39,7 +39,8 @@ namespace AEMS
             //SaveSubEventLocation();
             //SaveSubEventSponsor();
             //SaveSubEventPanelist();
-            SaveEventOverview();
+            //SaveEventOverview();
+            SaveBudget();
         }
 
         public void SaveMainEventOwner()
@@ -220,6 +221,25 @@ namespace AEMS
             objDB.DoUpdateUsingCmdObj(objCommand);
 
         }
+
+        public void SaveBudget()
+        {
+            string strSQL = "CreateBudget";
+            objCommand.CommandText = strSQL;
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.Parameters.AddWithValue("@AnticipatedAttendee", int.Parse(txtAnticipatedAttendee.Text));
+            objCommand.Parameters.AddWithValue("@ActualAttendee", int.Parse(txtActualAttendee.Text));
+            objCommand.Parameters.AddWithValue("@CostPerAttendee", float.Parse(txtCostPerAttendee.Text));
+            objCommand.Parameters.AddWithValue("@Contract",txtContract.Text);
+            objCommand.Parameters.AddWithValue("@NetProfit", float.Parse(txtNetProfit.Text));
+            objCommand.Parameters.AddWithValue("@NetExpense",float.Parse(txtNetExpense.Text));
+            
+            objDB.DoUpdateUsingCmdObj(objCommand);
+
+        }
+    
+
+    
 
         protected void btnTest_Click(object sender, EventArgs e)
         {
