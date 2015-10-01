@@ -1135,35 +1135,33 @@
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkAnticipatedAttendee" value=""/>Anticipated Attendee</label>
-                                                    <input id="txtAnticipatedAttendee" type="text" />
+                                                    <asp:TextBox id="txtAnticipatedAttendee" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkActualAttendee" value=""/>Actual Attendee</label>
-                                                    <input id="txtActualAttendee" type="text" />
+                                                    <asp:TextBox id="txtActualAttendee" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkCostPerAttendee" value=""/>Overall cost per attendee</label>
-                                                    <input id="txtCostPerAttendee" type="text" />
+                                                    <asp:TextBox id="txtCostPerAttendee" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkContract" value=""/>Contract</label>
-                                                    <input id="txtContract" type="text" />
+                                                    <asp:TextBox id="txtContract" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkNetProfit" value=""/>Net Profit</label>
-                                                    <input id="txtNetProfit" type="text" />
+                                                    <asp:TextBox id="txtNetProfit" runat="server" CssClass="form-control input-sm" />
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" id="chkNetExpense" value=""/>Net Expense</label>
-                                                    <input id="txtNetExpense" type="text" />
+                                                    <asp:TextBox id="txtNetExpense" runat="server" CssClass="form-control input-sm" />
                                                 </div>
-
-
                                             </div>
                                         </div>
                                     </div>
