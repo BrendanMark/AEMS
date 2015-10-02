@@ -30,13 +30,21 @@
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <link rel="stylesheet" href="/resources/demos/style.css">
-    <script>
 
-    </script>
     <script>
-        $(function () {
-            $("#endDate").datepicker();
-        });
+        function onSave() {
+            copyStartDate();
+            copyEndDate();
+        }
+        
+        function copyStartDate() {
+            var value = document.querySelector('#startdatepicker div input').value;
+            document.getElementById('hdnStartDatePicker').value = value;
+        }
+        function copyEndDate() {
+            var value = document.querySelector('#enddatepicker div input').value;
+            document.getElementById('hdnEndDatePicker').value = value;
+        }
     </script>
 </head>
 <body>
@@ -115,14 +123,15 @@
                             <div class="form-inline" style="text-align: center">
                                 <asp:Label ID="lblStartDate" runat="server" Text="StartDate" Font-Bold="true"></asp:Label>
                                 <div class="bfh-datepicker" id="startdatepicker">
-                                        <%--<asp:TextBox ID ="startdatepicker" runat="server" type="text" form="form"></asp:TextBox>--%>
-                                        <input  type="text" data-name="sdp"/>
-                                    </div>
+                                    <input type="text" data-name="sdp" />
+                                </div>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Label ID="lblEndDate" runat="server" Text="EndDate" Font-Bold="true"></asp:Label>
-                                <input type="text" id="endDate" readonly="true">
+                                <div class="bfh-datepicker" id="enddatepicker">
+                                    <input type="text" data-name="edp" />
+                                </div>
                                 &nbsp;&nbsp;
-                                <asp:Button ID="btnDateGo" runat="server" Text="Go" CssClass="btn-sm btn-primary" OnClientClick="return OnSave()" OnClick="btnDateGo_Click" />
+                                <asp:Button ID="btnDateGo" runat="server" Text="Go"  OnClientClick="onSave()" CssClass="btn-sm btn-primary" OnClick="btnDateGo_Click" />
                             </div>
                             <br />
                         </div>
@@ -147,7 +156,7 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                <asp:CommandField ShowSelectButton="true" ButtonType="Button" HeaderText="View Detail" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White"></asp:CommandField>
+                                <asp:CommandField ShowSelectButton="true" ButtonType="Link" Text="<i aria-hidden='true' class='glyphicon glyphicon-eye-open'></i> Select" HeaderText="View Detail" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White"></asp:CommandField>
                                 <asp:CommandField ButtonType="Button" ShowDeleteButton="true" HeaderText="Delete" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
                             </Columns>
                         </asp:GridView>
@@ -160,6 +169,8 @@
             </div>
         </div>
         <asp:HiddenField ID="hdnStartDatePicker" runat="server" />
+        <asp:HiddenField ID="hdnEndDatePicker" runat="server" />
+
     </form>
 </body>
 
@@ -245,19 +256,3 @@
     </div>
 </footer>
 
-    <script>
-        function onSave() {
-            copyEndDate();
-            copyStartDate();
-            copyStartTime();
-            copyEndTime();
-        }
-        function copyEndDate() {
-            var value = document.querySelector('#enddatepicker div input').value;
-            document.getElementById('hdnEndDatePicker').value = value;
-        }
-        function copyStartDate() {
-            var value = document.querySelector('#startdatepicker input').value;
-            document.getElementById('hdnStartDatePicker').value = value;
-        }
-    </script>
