@@ -383,29 +383,20 @@
     <form id="form1" runat="server" onsubmit="onSave()">
 
         <%--  Code for navigation bar--%>
-        <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#"><img src="templeowl.png" height="75" width="75" /></a>
-                    <%--<a class="navbar-brand" href="#"><img src="TempleT.png" height="50" width="50" /></a>--%>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
-                        <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse navbar-menubuilder">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li><a href="Index.aspx">Home</a>
-                        </li>
-                        <li class="active"><a href="CreateEvent.aspx">Create Event</a>
-                        </li>
-                        <li><a href="ViewEvent.aspx">View/Manage Event</a>
-                        </li>
-                        <li><a href="CreateReport.aspx">Create Report</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+      <body class="news">
+  <header>
+    <div class="nav">
+      <ul>
+        <li class="home"><a href="#">Home</a></li>
+        <li class="tutorials"><a href="#">Tutorials</a></li>
+        <li class="about"><a href="#">About</a></li>
+        <li class="news"><a href="#">Newsletter</a></li>
+        <li class="contact"><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+</body>
+              
         <%-- Code for navigation bar ends--%>
         <%--Code for instructions and Event Information panel--%>
          <div class="container">
