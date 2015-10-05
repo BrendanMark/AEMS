@@ -20,7 +20,9 @@ namespace AEMS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
-        
+        protected global::System.Web.UI.WebControls.TextBox txtEventCoSponsorFirstName;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdbEventUniversityPartner;
+        protected global::System.Web.UI.WebControls.TextBox txtEventCoSponsorEmail;
         /// <summary>
         /// form1 control.
         /// </summary>
