@@ -20,8 +20,8 @@ namespace AEMS
 
         public Connection()
         {
-            //myConnectionSql = new SqlConnection(SqlConnectString);
-            //myConnectionSql.Open();
+            myConnectionSql = new SqlConnection(SqlConnectString);
+            myConnectionSql.Open();
 
         }
 
