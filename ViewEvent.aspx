@@ -36,10 +36,16 @@
             copyStartDate();
             copyEndDate();
         }
-        
+
         function copyStartDate() {
             var value = document.querySelector('#startdatepicker div input').value;
             document.getElementById('hdnStartDatePicker').value = value;
+
+            //$('#startdatepicker').datepicker({
+            //    onClose: function (dateText, inst) {
+            //        $('#startdatepicker').datepicker("setDate", new Date(2008, 7, 8));
+            //    }
+            //});
         }
         function copyEndDate() {
             var value = document.querySelector('#enddatepicker div input').value;
@@ -82,10 +88,14 @@
                 <h4 style="color: #a41e35"><b>Find and select events to export them to Excel Spreadsheet</b></h4>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title" style="font-weight: bold">Look Up Events</h3>
+                        <div class="form-inline" style="text-align: left">
+                            <h3 class="panel-title" style="font-weight: bold">Look Up Events</h3>
+                            <asp:Button ID="btnShowAllEvents" runat="server" Text="Show All Events" CssClass="btn-md btn-default pull-right" OnClick="btnShowAllEvents_Click" />
+                        </div>
                     </div>
                     <div class="panel-body">
                         <asp:Label ID="lblDisplay" runat="server" Font-Bold="true" ForeColor="Red"></asp:Label>
+
                         <div class="form-inline" style="text-align: center">
                             <asp:Label ID="lblSearch" runat="server" Text="Search By Event Name: " Font-Bold="true"></asp:Label>&nbsp
                             <asp:TextBox ID="txtSearchEvent" runat="server" CssClass="form-control" placeHolder="Search.."></asp:TextBox>
@@ -99,19 +109,22 @@
                             <div style="border: 0px solid #a41e35; text-align: center">
 
                                 <asp:Label ID="Label5" runat="server" Text="Event Category" Font-Bold="true"></asp:Label>
-                                <asp:DropDownList ID="ddlEventCategory" runat="server" Height="20px" DataSourceID="ddlEventTypeDS" DataTextField="EventCategory" DataValueField="EventCategory">
+                                <asp:DropDownList ID="ddlEventCategory" runat="server" Height="20px" DataSourceID="ddlEventTypeDS" DataTextField="EventCategory" DataValueField="EventCategory" AppendDataBoundItems="true">
+                                    <asp:ListItem Text="" Value="" />
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="ddlEventTypeDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT DISTINCT [EventCategory] FROM [Event]"></asp:SqlDataSource>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                                 <asp:Label ID="Label1" runat="server" Text="Owner Last Name" Font-Bold="true"></asp:Label>
-                                <asp:DropDownList ID="ddlOwnerLastName" runat="server" Height="20px" DataSourceID="ddlOwnerDS" DataTextField="OwnerLastName" DataValueField="OwnerLastName">
+                                <asp:DropDownList ID="ddlOwnerLastName" runat="server" Height="20px" DataSourceID="ddlOwnerDS" DataTextField="OwnerLastName" DataValueField="OwnerLastName" AppendDataBoundItems="true">
+                                    <asp:ListItem Text="" Value="" />
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="ddlOwnerDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT DISTINCT [OwnerLastName] FROM [Event_Owner]"></asp:SqlDataSource>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                                 <asp:Label ID="Label3" runat="server" Text="Event Name" Font-Bold="true"></asp:Label>
-                                <asp:DropDownList ID="ddlEventName" runat="server" Height="20px" DataSourceID="ddlEventDS" DataTextField="EventName" DataValueField="EventName">
+                                <asp:DropDownList ID="ddlEventName" runat="server" Height="20px" DataSourceID="ddlEventDS" DataTextField="EventName" DataValueField="EventName" AppendDataBoundItems="true">
+                                    <asp:ListItem Text="" Value="" />
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="ddlEventDS" runat="server" ConnectionString="<%$ ConnectionStrings:CIS4396F01ConnectionString %>" SelectCommand="SELECT DISTINCT [EventName] FROM [Event]"></asp:SqlDataSource>
                                 &nbsp;                              
@@ -131,13 +144,13 @@
                                     <input type="text" data-name="edp" />
                                 </div>
                                 &nbsp;&nbsp;
-                                <asp:Button ID="btnDateGo" runat="server" Text="Go"  OnClientClick="onSave()" CssClass="btn-sm btn-primary" OnClick="btnDateGo_Click" />
+                                <asp:Button ID="btnDateGo" runat="server" Text="Go" OnClientClick="onSave()" CssClass="btn-sm btn-primary" OnClick="btnDateGo_Click" />
                             </div>
                             <br />
                         </div>
 
                         <%--Grid View for the events--%>
-                        <asp:GridView ID="gvEvents" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnRowDataBound="gvEvents_RowDataBound" OnRowCommand="gvEvents_RowCommand" OnRowDeleting="gvEvents_RowDeleting" DataKeyNames="EventID">
+                        <asp:GridView ID="gvEvents" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnRowDataBound="gvEvents_RowDataBound" OnRowCommand="gvEvents_RowCommand" OnRowDeleting="gvEvents_RowDeleting" DataKeyNames="EventID" AllowSorting="true" OnSorting="SortGridView">
                             <Columns>
                                 <asp:BoundField HeaderText="EventName" DataField="EventName" SortExpression="EventName" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
                                 <asp:BoundField HeaderText="StartDate" DataField="StartDate" SortExpression="StartDate" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
@@ -156,7 +169,7 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                <asp:CommandField ShowSelectButton="true" ButtonType="Link" Text="<i aria-hidden='true' class='glyphicon glyphicon-eye-open'></i> Select" HeaderText="View Detail" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White"></asp:CommandField>
+                                <asp:CommandField ShowSelectButton="true" ButtonType="Link" HeaderText="View Detail" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White"></asp:CommandField>
                                 <asp:CommandField ButtonType="Button" ShowDeleteButton="true" HeaderText="Delete" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
                             </Columns>
                         </asp:GridView>
