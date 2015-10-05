@@ -29,6 +29,11 @@ namespace AEMS
             
         }
 
+        public void DynamicCheckBoxTasks()
+        {
+
+        }
+
         protected void btnSave_Click(object sender, EventArgs e)
         {
             //SaveMainEventOwner();
@@ -41,7 +46,9 @@ namespace AEMS
             //SaveSubEventPanelist();
             //SaveEventOverview();
             //SaveBudget();
-            SaveMarketingCommunication();
+            //SaveMarketingCommunication();
+            //SavePreEventLogistics();
+            SavePostEventLogistics();
         }
 
         public void SaveMainEventOwner()
@@ -255,6 +262,39 @@ namespace AEMS
             objCommand.Parameters.AddWithValue("@Postcards", txtPostcards.Text);
             objCommand.Parameters.AddWithValue("@ElectronicDisplay", txtElectronicDisplay.Text);
             objCommand.Parameters.AddWithValue("@Signage", txtSignage.Text);
+            objDB.DoUpdateUsingCmdObj(objCommand);
+        }
+
+        public void SavePreEventLogistics()
+        {
+            string strSQL = "CreatePreEventLogistics";
+            objCommand.CommandText = strSQL;
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.Parameters.AddWithValue("@TechnologySupport", txtTechnologySupport.Text);
+            objCommand.Parameters.AddWithValue("@AudioVideo", txtAudioVideo.Text);
+            objCommand.Parameters.AddWithValue("@Decorations", txtDecorations.Text);
+            objCommand.Parameters.AddWithValue("@Photography", txtPhotography.Text);
+            objCommand.Parameters.AddWithValue("@Technology", txtTechnology.Text);
+            objCommand.Parameters.AddWithValue("@Giveaways", txtGiveaway.Text);
+            objCommand.Parameters.AddWithValue("@TravelArrangements", txtTravelArrangements.Text);
+            objCommand.Parameters.AddWithValue("@Parking", txtParking.Text);
+            objCommand.Parameters.AddWithValue("@Security", txtSecurity.Text);
+            objCommand.Parameters.AddWithValue("@RegistrationsItems", txtRegistrationItem.Text);
+            objCommand.Parameters.AddWithValue("@Supplies", txtSupplies.Text);
+            objDB.DoUpdateUsingCmdObj(objCommand);
+        }
+
+        public void SavePostEventLogistics()
+        {
+            string strSQL = "CreatePostEventActivities";
+            objCommand.CommandText = strSQL;
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.Parameters.AddWithValue("@DebriefMeeting", txtDebriefMeeting.Text);
+            objCommand.Parameters.AddWithValue("@Notes", txtNotes.Text);
+            objCommand.Parameters.AddWithValue("@EnterDataEventManager", txtInputEventManager.Text);
+            objCommand.Parameters.AddWithValue("@EnterDataBanner", txtInputBanner.Text);
+            objCommand.Parameters.AddWithValue("@ProgramEvaluation", txtProgramEvaluation.Text);
+
             objDB.DoUpdateUsingCmdObj(objCommand);
         }
     
