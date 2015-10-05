@@ -410,7 +410,10 @@
 
         <%--  Code for navigation bar--%>
      
-  <div class="container">
+
+
+      <!-- Static navbar -->
+       <div class="container">
 
       <!-- Static navbar -->
       <nav class="navbar navbar-default">
@@ -426,11 +429,11 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-center">
-              <li class="Index.aspx"><a href="#">HOME</a></li>
+              <li><a href="Index.aspx">HOME</a></li>
               <li><a href="CreateEvent.aspx">CREATE EVENT</a></li>
               <li><a href="ManageEvent.aspx">MANAGE EVENT</a></li>
               <li><a href="ViewEvent.aspx">VIEW EVENT</a></li>
-               <li><a href="CreateReport">CREATE REPORT</a></li>
+               <li><a href="CreateReport.aspx">CREATE REPORT</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="Login.aspx">LOG IN</a></li>
@@ -441,7 +444,6 @@
       </nav>
 
      </div>
-        
               
         <%-- Code for navigation bar ends--%>
         <%--Code for instructions and Event Information panel--%>
