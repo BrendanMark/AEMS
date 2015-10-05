@@ -406,7 +406,7 @@
     <form id="form1" runat="server" onsubmit="onSave()">
 
         <%--  Code for navigation bar--%>
-      <body class="news">
+     
   <header>
     <div class="nav">
       <ul>
@@ -418,7 +418,7 @@
       </ul>
     </div>
   </header>
-</body>
+
               
         <%-- Code for navigation bar ends--%>
         <%--Code for instructions and Event Information panel--%>
@@ -955,20 +955,45 @@
                                     </div>--%>
 
                                     <div id="main_container">
-    <div class="column"><div class="column_padder"><label class="control-label">Sponsor First Name<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtEventSponsorFirstName" runat="server" CssClass="form-control"></asp:TextBox></div></div>
-    <div class="column"><div class="column_padder"><label class="control-label">Sponsor Last Name<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtEventSponsorLastName" runat="server" CssClass="form-control"></asp:TextBox></div></div>
+                                            <div class="column"><div class="column_padder">
+                                                 <label class="control-label">Sponsor First Name<span style="color: red">*</span></label>
+                                                <asp:TextBox ID="txtEventSponsorFirstName" runat="server" CssClass="form-control"></asp:TextBox><br />
+                                                <label class="control-label">Co-Sponsor First Name<span style="color: red">*</span></label>
+                                                <asp:TextBox ID="txtEventCoSponsorFirstName" runat="server" CssClass="form-control"></asp:TextBox>
+                                                                </div></div>
+
+                                            <div class="column"><div class="column_padder">
+                                                <label class="control-label">Sponsor Last Name<span style="color: red">*</span></label>
+                                                <asp:TextBox ID="txtEventSponsorLastName" runat="server" CssClass="form-control"></asp:TextBox><br />
+                                                <label class="control-label">Co-Sponsor Last Name<span style="color: red">*</span></label>
+                                                <asp:TextBox ID="txtEventCoSponsorLastName" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div></div>
     <div class="column"><div class="column_padder"><label class="control-label">Email<span style="color: red">*</span></label>
-                                            <asp:TextBox ID="txtEventSponsorEmail" runat="server" CssClass="form-control"></asp:TextBox></div></div>
+                                            <asp:TextBox ID="txtEventSponsorEmail" runat="server" CssClass="form-control"></asp:TextBox><br />
+        <label class="control-label">Email<span style="color: red">*</span></label>
+                                            <asp:TextBox ID="txtEventCoSponsorEmail" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div></div>
     <div class="column"><div class="column_padder"><label class="control-label">University Partner?<span style="color: red">*</span></label>
+                                            <asp:RadioButtonList ID="rdbEventUniversityPartner" runat="server" RepeatDirection="Horizontal">
+                                                <asp:ListItem>Yes</asp:ListItem>
+                                                <asp:ListItem>No</asp:ListItem>
+                                            </asp:RadioButtonList><br />
+
+        <label class="control-label">University Partner?<span style="color: red">*</span></label>
                                             <asp:RadioButtonList ID="rdbEventCoUniversityPartner" runat="server" RepeatDirection="Horizontal">
                                                 <asp:ListItem>Yes</asp:ListItem>
                                                 <asp:ListItem>No</asp:ListItem>
-                                            </asp:RadioButtonList></div></div>
-    <div class="column"><div class="column_padder"><label class="control-label">Add Co-Sponsor</label><br />
-                                            <asp:LinkButton ID="AddButton" runat="server" class="glyphicon glyphicon-plus"></asp:LinkButton></div></div>
+                                            </asp:RadioButtonList>
+                        </div></div>
+    <div class="column"><div class="column_padder">
+                                            <label class="control-label">Add Sponsor</label><br />
+                                            <asp:LinkButton ID="AddSponsor" runat="server" class="glyphicon glyphicon-plus"></asp:LinkButton><br /><br /><br />
+                                            <label class="control-label">Add Co-Sponsor</label><br />
+                                            <asp:LinkButton ID="AddCoSponsor" runat="server" class="glyphicon glyphicon-plus"></asp:LinkButton>
+                        </div></div>
 </div>
+
+
                                 </div>
                             </div>
                         </div></div>
@@ -1205,55 +1230,6 @@
                                 </div>
                             </div>
 
-                            <%--<div class="col-md-4">
-                                <div class="panel-group" id="accordion4">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-
-                                            <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#accordion4" href="#collapseFour">Participants / Banner ID #</a>
-
-                                        </div>
-                                        <div id="collapseFour" class="panel-collapse collapse out">
-                                            <div class="panel-body">
-                                                
-                                               
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" id="chkEventStaff" value=""/>Event Staff</label>
-                                                    <input id="txtEventStaff" type="text" />
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" id="chkProgramParticipant" value=""/>Program Participant</label>
-                                                    <input id="txtProgramParticipant" type="text" />
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" id="chkAlumniSpeaker" value=""/>Alumni Speaker(s)</label>
-                                                    <input id="txtAlumniSpeaker" type="text" />
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" id="chkFacultySpeaker" value=""/>Faculty Speaker(s)</label>
-                                                    <input id="txtFacultySpeaker" type="text" />
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" id="chkPanelMember" value=""/>Panel Member(s)</label>
-                                                    <input id="txtPanelMember" type="text" />
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" id="chkTourOperator" value=""/>Tour Operator</label>
-                                                    <input id="txtTourOperator" type="text" />
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>--%>
 
                             <%--Marketing panel--%>
                             <div class="col-md-4">
