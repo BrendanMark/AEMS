@@ -110,8 +110,9 @@ namespace AEMS
             string strSQL = "CreateSponsor";
             SaveSponserobjCommand.CommandText = strSQL;
             SaveSponserobjCommand.CommandType = CommandType.StoredProcedure;
-            SaveSponserobjCommand.Parameters.AddWithValue("@SponserName", txtEventSponsorName.Text);
-            SaveSponserobjCommand.Parameters.AddWithValue("@CoSponserName", txtEventCoSponsorName.Text);
+            SaveSponserobjCommand.Parameters.AddWithValue("@SponsorFirstName", txtEventSponsorFirstName.Text);
+            SaveSponserobjCommand.Parameters.AddWithValue("@SponsorLastName", txtEventSponsorLastName.Text);
+            SaveSponserobjCommand.Parameters.AddWithValue("@CoSponsorFirstName", txtEventCoSponsorFirstName.Text);
             SaveSponserobjCommand.Parameters.AddWithValue("@UniversityPartnerName", rdbEventUniversityPartner.SelectedIndex);
             SaveSponserobjCommand.Parameters.AddWithValue("@UniversityPartner", rdbEventCoUniversityPartner.SelectedIndex);
             SaveSponserobjCommand.Parameters.AddWithValue("@SponsorEmail", txtEventSponsorEmail.Text);
