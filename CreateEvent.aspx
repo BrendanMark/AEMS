@@ -11,7 +11,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <%--Stylesheet for navigation bar--%>
-<link href="navigationBar.css" rel="stylesheet" />
+<link href="navigatioBar.css" rel="stylesheet" />
 
 <%--for footer--%>
 <link type="text/css" rel="stylesheet" href="http://www.temple.edu/sites/temple/files/css/css_OCCCxEXLcOWEYOLZIlp4WFqVS4zcfvLRB6D_bEd9x50.css" media="screen" />
@@ -398,6 +398,9 @@
     } .column_padder {
         padding:4px 30px 4px 4px;
     }
+    .auto-style1 {
+        font-size: medium;
+    }
 </style>
 
 
@@ -407,18 +410,38 @@
 
         <%--  Code for navigation bar--%>
      
-  <header>
-    <div class="nav">
-      <ul>
-        <li class="home"><a href="ViewEvent.aspx">Home</a></li>
-        <li class="tutorials"><a href="#">Tutorials</a></li>
-        <li class="about"><a href="#">About</a></li>
-        <li class="news"><a href="#">Newsletter</a></li>
-        <li class="contact"><a href="#">Contact</a></li>
-      </ul>
-    </div>
-  </header>
+  <div class="container">
 
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">A.E.M.S</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-center">
+              <li class="Index.aspx"><a href="#">HOME</a></li>
+              <li><a href="CreateEvent.aspx">CREATE EVENT</a></li>
+              <li><a href="ManageEvent.aspx">MANAGE EVENT</a></li>
+              <li><a href="ViewEvent.aspx">VIEW EVENT</a></li>
+               <li><a href="CreateReport">CREATE REPORT</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="Login.aspx">LOG IN</a></li>
+                
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+     </div>
+        
               
         <%-- Code for navigation bar ends--%>
         <%--Code for instructions and Event Information panel--%>
@@ -429,7 +452,7 @@
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#accordion" href="#collapseOne">Event Information</a>
+                        <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#accordion" href="#collapseOne"><span class="auto-style1"><strong>EVENT INFORMATION</strong></span></a>
                     </div>
 
                     <div id="collapseOne" class="panel-collapse collapse in">
@@ -910,7 +933,7 @@
                         <div class="panel-group" id="mainEventSponsorAccordion">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <a data-toggle="collapse" data-parent="#mainEventSponsorAccordion" href="#sponsorsCollapse">Event Sponsors</a>
+                                    <a data-toggle="collapse" data-parent="#mainEventSponsorAccordion" href="#sponsorsCollapse"><span class="auto-style1"><strong>EVENT SPONSORS</strong></span></a>
                                 </div>
                                 <div id="sponsorsCollapse" class="panel-collapse collapse out">
                                     <%--<div class="panel-body">
@@ -1004,7 +1027,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     
-                                    <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#MainEventPanelist" href="#PanelistCollapse">Event Panelists</a>
+                                    <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#MainEventPanelist" href="#PanelistCollapse"><strong><span class="auto-style1">EVENT PANELIST</span></strong></a>
                                 </div>
                                 <div id="PanelistCollapse" class="panel-collapse collapse out">
                                     <div class="panel-body">
@@ -1042,7 +1065,7 @@
             <div class="panel-group" id="#eventAccordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#eventAccordion" href="#eventCollapse">Event Details</a>
+                        <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#eventAccordion" href="#eventCollapse"><strong><span class="auto-style1">EVENT DETAILS</span></strong></a>
                     </div>
                     <div id="eventCollapse" class="panel-collapse collapse out">
                         <div class="panel-body">
@@ -1052,7 +1075,7 @@
                                 <div class="panel-group" id="categoryPanel">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#categoryPanel" href="#categoryCollapse">Event Category</a>
+                                            <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#categoryPanel" href="#categoryCollapse">EVENT CATEGORY</a>
                                         </div>
                                         <div id="categoryCollapse" class="panel-collapse collapse out">
                                             <div class="panel-body">
@@ -1128,7 +1151,7 @@
                                 <div class="panel-group" id="accordion2">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#accordion2" href="#collapsetwo">Event Overview</a>
+                                            <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#accordion2" href="#collapsetwo">EVENT OVERVIEW</a>
                                         </div>
                                         <div id="collapsetwo" class="panel-collapse collapse out">
                                             <div class="panel-body">
@@ -1189,7 +1212,7 @@
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
 
-                                            <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#accordion3" href="#collapseThree">Budget</a>
+                                            <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#accordion3" href="#collapseThree">BUDGET</a>
 
                                         </div>
                                         <div id="collapseThree" class="panel-collapse collapse out">
@@ -1426,7 +1449,7 @@
         <div class="panel-group" id="accordion14">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#accordion14" href="#collapseFourteen">Task</a>
+                    <a data-toggle="collapse""tooltip" title="Click to Expand or Collapse" data-parent="#accordion14" href="#collapseFourteen"><strong><span class="auto-style1">TASK</span></strong></a>
                 </div>
                 <div id="collapseFourteen" class="panel-collapse collapse out">
                     <div class="panel-body">
@@ -1486,7 +1509,7 @@
                     <div class="panel-heading">
                         <div id="minusPanel" class="glyphicon glyphicon-minus pull-right" style="cursor: pointer"></div>
                         <div id="addPanel" class="glyphicon glyphicon-plus pull-right" style="cursor: pointer"></div>
-                        <a class ="accordion-toggle" data-toggle="collapse" "tooltip" title="Click to Expand or Collapse" data-parent="#accordion8" href="#collapseEight">Sub Event</a>
+                        <a class ="accordion-toggle" data-toggle="collapse" "tooltip" title="Click to Expand or Collapse" data-parent="#accordion8" href="#collapseEight"><span class="auto-style1"><strong>SUB EVENT</strong></span></a>
                     </div>
                     <div id="collapseEight" class="panel-collapse collapse out">
                         <div class="panel-body">
@@ -1746,10 +1769,10 @@
                     </div>
             </div>
         <%--Sub Event Panel Ends--%>        <%--Sub Event Panel Ends--%>
-        <div class="container">
-            <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click"  />
+        <div class="container text-right">
+            <asp:Button ID="Button1" runat="server" class="btn btn-primary" Text="SAVE" OnClick="btnSave_Click" ForeColor="White" BackColor="#A41E35"   BOLHeight="40px" Width="100px" Height="45px" />
+          
             <%--<asp:Button ID="btnTest" runat="server" OnClick="getdate()" Text="Button" />--%>
-            <asp:Label ID="lblTest" runat="server" Text="Label"></asp:Label>
 
             <%--<script>
                 function getdate() {
@@ -1759,6 +1782,7 @@
               
         </div>
        
+        <br />
         <%--footer for pages--%>
         <footer id="#footer">
             <div class="footer-wrap top">

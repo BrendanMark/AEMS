@@ -200,7 +200,7 @@
     <Content Include="Login.aspx" />
     <Content Include="LOGO.PNG" />
     <Content Include="ManageEvent.aspx" />
-    <Content Include="navigationBar.css" />
+    <Content Include="navigatioBar.css" />
     <Content Include="templeowl.png" />
     <Content Include="TempleT.png" />
     <Content Include="tmpls\day.html" />
