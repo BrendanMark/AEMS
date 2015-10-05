@@ -376,8 +376,31 @@
 </script>
 <%--end of script--%>
 
+
+
 <head id="Head1" runat="server">
     <title></title>
+
+  <%--  style sheet used for 5 columns in sponsor div--%>
+<style type="text/css">
+    #main_container {
+        background-image:url('images/sep.png');
+        background-repeat:repeat-y;
+        padding-left:26px;
+        overflow:hidden;
+    }
+    .column {
+        width:20%;
+        float:left;
+        background-image:url('images/sep.png');
+        background-repeat:repeat-y;
+        background-position:top right;
+    } .column_padder {
+        padding:4px 30px 4px 4px;
+    }
+</style>
+
+
 </head>
 <body>
     <form id="form1" runat="server" onsubmit="onSave()">
@@ -899,7 +922,7 @@
                                     <a data-toggle="collapse" data-parent="#mainEventSponsorAccordion" href="#sponsorsCollapse">Event Sponsors</a>
                                 </div>
                                 <div id="sponsorsCollapse" class="panel-collapse collapse out">
-                                    <div class="panel-body">
+                                    <%--<div class="panel-body">
                                         <div class="col-md-4">
                                             <label class="control-label">Sponsor Name<span style="color: red">*</span></label>
                                             <asp:TextBox ID="txtEventSponsorName" runat="server" CssClass="form-control"></asp:TextBox>
@@ -938,7 +961,23 @@
                                             <label class="control-label">Add Co-Sponsor</label><br />
                                             <asp:LinkButton ID="LinkButton2" runat="server" class="glyphicon glyphicon-plus"></asp:LinkButton>
                                         </div>
-                                    </div>
+                                    </div>--%>
+
+                                    <div id="main_container">
+    <div class="column"><div class="column_padder"><label class="control-label">Sponsor First Name<span style="color: red">*</span></label>
+                                            <asp:TextBox ID="txtEventSponsorFirstName" runat="server" CssClass="form-control"></asp:TextBox></div></div>
+    <div class="column"><div class="column_padder"><label class="control-label">Sponsor Last Name<span style="color: red">*</span></label>
+                                            <asp:TextBox ID="txtEventSponsorLastName" runat="server" CssClass="form-control"></asp:TextBox></div></div>
+    <div class="column"><div class="column_padder"><label class="control-label">Email<span style="color: red">*</span></label>
+                                            <asp:TextBox ID="txtEventSponsorEmail" runat="server" CssClass="form-control"></asp:TextBox></div></div>
+    <div class="column"><div class="column_padder"><label class="control-label">University Partner?<span style="color: red">*</span></label>
+                                            <asp:RadioButtonList ID="rdbEventCoUniversityPartner" runat="server" RepeatDirection="Horizontal">
+                                                <asp:ListItem>Yes</asp:ListItem>
+                                                <asp:ListItem>No</asp:ListItem>
+                                            </asp:RadioButtonList></div></div>
+    <div class="column"><div class="column_padder"><label class="control-label">Add Co-Sponsor</label><br />
+                                            <asp:LinkButton ID="AddButton" runat="server" class="glyphicon glyphicon-plus"></asp:LinkButton></div></div>
+</div>
                                 </div>
                             </div>
                         </div></div>

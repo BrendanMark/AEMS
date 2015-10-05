@@ -157,13 +157,22 @@ namespace AEMS {
         protected global::System.Web.UI.WebControls.DropDownList ddlTimeZone;
         
         /// <summary>
-        /// txtEventSponsorName control.
+        /// txtEventSponsorFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEventSponsorName;
+        protected global::System.Web.UI.WebControls.TextBox txtEventSponsorFirstName;
+        
+        /// <summary>
+        /// txtEventSponsorLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEventSponsorLastName;
         
         /// <summary>
         /// txtEventSponsorEmail control.
@@ -175,42 +184,6 @@ namespace AEMS {
         protected global::System.Web.UI.WebControls.TextBox txtEventSponsorEmail;
         
         /// <summary>
-        /// rdbEventUniversityPartner control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rdbEventUniversityPartner;
-        
-        /// <summary>
-        /// LinkButton1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
-        
-        /// <summary>
-        /// txtEventCoSponsorName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEventCoSponsorName;
-        
-        /// <summary>
-        /// txtEventCoSponsorEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEventCoSponsorEmail;
-        
-        /// <summary>
         /// rdbEventCoUniversityPartner control.
         /// </summary>
         /// <remarks>
@@ -220,13 +193,13 @@ namespace AEMS {
         protected global::System.Web.UI.WebControls.RadioButtonList rdbEventCoUniversityPartner;
         
         /// <summary>
-        /// LinkButton2 control.
+        /// AddButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
+        protected global::System.Web.UI.WebControls.LinkButton AddButton;
         
         /// <summary>
         /// txtEventPanelistFirstName control.
