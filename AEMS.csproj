@@ -215,6 +215,7 @@
     <Content Include="tmpls\year-month.html" />
     <Content Include="tmpls\year.html" />
     <Content Include="ViewEvent.aspx" />
+    <Content Include="ViewEventNew.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +265,13 @@
     </Compile>
     <Compile Include="ViewEvent.aspx.designer.cs">
       <DependentUpon>ViewEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewEventNew.aspx.cs">
+      <DependentUpon>ViewEventNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewEventNew.aspx.designer.cs">
+      <DependentUpon>ViewEventNew.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

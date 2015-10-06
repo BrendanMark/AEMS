@@ -93,7 +93,7 @@
         <div class="container">
             <div class="col-lg-12">
                 <h4 style="color: #a41e35"><b>Find and select events to export them to Excel Spreadsheet</b></h4>
-                <div class="panel panel-default">
+                <div class="panel panel-primary">
                     <div class="panel-heading">
                         <div class="form-inline" style="text-align: left">
                             <h3 class="panel-title" style="font-weight: bold">LOOK UP EVENTS</h3>
