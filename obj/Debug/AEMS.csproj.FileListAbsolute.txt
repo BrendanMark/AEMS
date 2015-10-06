@@ -2,3 +2,4 @@ W:\CIS4396-F01\tuf15070\AEMS\bin\AEMS.dll
 W:\CIS4396-F01\tuf15070\AEMS\bin\AEMS.pdb
 W:\CIS4396-F01\tuf15070\AEMS\obj\Debug\AEMS.dll
 W:\CIS4396-F01\tuf15070\AEMS\obj\Debug\AEMS.pdb
+W:\CIS4396-F01\tuf15070\AEMS\obj\Debug\AEMS.csprojResolveAssemblyReference.cache
