@@ -18,7 +18,7 @@ namespace AEMS
         {
             if (!IsPostBack)
             {
-                int eventID = 5;
+                int eventID = (int)Session["EventID"];
                 //int ownerID = 6;
                 //int sponsorID = 1;
                 //int panelistID = 1;
@@ -64,10 +64,18 @@ namespace AEMS
             getEventOwner.Parameters.AddWithValue("@EventID", eventID);
             //getEventOwner.Parameters.AddWithValue("@OwnerID", ownerID);
             DataSet dsOwner = connection.GetDataSetUsingCmdObj(getEventOwner);
-            firstName = dsOwner.Tables[0].Rows[0]["OwnerFirstName"].ToString();
-            lastName = dsOwner.Tables[0].Rows[0]["OwnerLastName"].ToString();
-            fullName = firstName + " " + lastName;
-            txtEventOwner.Text = fullName;
+            if (dsOwner.Tables[0].Rows.Count > 0)
+            {
+                firstName = dsOwner.Tables[0].Rows[0]["OwnerFirstName"].ToString();
+                lastName = dsOwner.Tables[0].Rows[0]["OwnerLastName"].ToString();
+                fullName = firstName + " " + lastName;
+                txtEventOwner.Text = fullName;
+            }
+            else
+            {
+                txtEventOwner.Text = "There is no Event Owner";
+            }
+            
         }
 
         //Gets the event name from the eventID and fills in the corresponding text boxes
@@ -91,12 +99,19 @@ namespace AEMS
             getLocationCommand.CommandText = "GetEventLocation";
             getLocationCommand.Parameters.AddWithValue("@EventID", eventID);
             DataSet dsLocation = connection.GetDataSetUsingCmdObj(getLocationCommand);
-            txtStreetAddress1.Text = dsLocation.Tables[0].Rows[0]["StreetAddress1"].ToString();
-            txtStreetAddress2.Text = dsLocation.Tables[0].Rows[0]["StreetAddress2"].ToString();
-            txtBuildingName.Text = dsLocation.Tables[0].Rows[0]["BuildingName"].ToString();
-            txtCity.Text = dsLocation.Tables[0].Rows[0]["City"].ToString();
-            txtRoomNumber.Text = dsLocation.Tables[0].Rows[0]["RoomNumber"].ToString();
-            txtZipCode.Text = dsLocation.Tables[0].Rows[0]["ZipCode"].ToString();
+            if (dsLocation.Tables[0].Rows.Count > 0)
+            {
+                txtStreetAddress1.Text = dsLocation.Tables[0].Rows[0]["StreetAddress1"].ToString();
+                txtStreetAddress2.Text = dsLocation.Tables[0].Rows[0]["StreetAddress2"].ToString();
+                txtBuildingName.Text = dsLocation.Tables[0].Rows[0]["BuildingName"].ToString();
+                txtCity.Text = dsLocation.Tables[0].Rows[0]["City"].ToString();
+                txtRoomNumber.Text = dsLocation.Tables[0].Rows[0]["RoomNumber"].ToString();
+                txtZipCode.Text = dsLocation.Tables[0].Rows[0]["ZipCode"].ToString();
+            }
+            else
+            {
+                txtStreetAddress1.Text = "there is no location for this event";
+            }
         }
 
         //Gets the event Sponsors from event id and populates the corresponding text boxes
@@ -145,11 +160,18 @@ namespace AEMS
             objCommand.Parameters.AddWithValue("@EventID", eventID);
             //objCommand.Parameters.AddWithValue("@PanelistID", panelistID);
             DataSet ds = connection.GetDataSetUsingCmdObj(objCommand);
-            txtPanelistFirstName.Text = ds.Tables[0].Rows[0]["PanelistFirstName"].ToString();
-            txtPanelistLastName.Text = ds.Tables[0].Rows[0]["PanelistLastName"].ToString();
-            txtPanelistEmail.Text = ds.Tables[0].Rows[0]["PanelistEmail"].ToString();
-            txtPanelistRole.Text = ds.Tables[0].Rows[0]["PanelistRole"].ToString();
-            txtPanelistPhoneNumber.Text = ds.Tables[0].Rows[0]["PanelistPhoneNumber"].ToString();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                txtPanelistFirstName.Text = ds.Tables[0].Rows[0]["PanelistFirstName"].ToString();
+                txtPanelistLastName.Text = ds.Tables[0].Rows[0]["PanelistLastName"].ToString();
+                txtPanelistEmail.Text = ds.Tables[0].Rows[0]["PanelistEmail"].ToString();
+                txtPanelistRole.Text = ds.Tables[0].Rows[0]["PanelistRole"].ToString();
+                txtPanelistPhoneNumber.Text = ds.Tables[0].Rows[0]["PanelistPhoneNumber"].ToString();
+            }
+            else
+            {
+                txtPanelistFirstName.Text = "There are no panelist";
+            }
         }
 
         //Gets the All the SubEventIDs that are associated with one event
@@ -172,8 +194,15 @@ namespace AEMS
             objCommand.CommandText = "GetSubEventInfo";
             objCommand.Parameters.AddWithValue("@SubEventID", subeventID);
             DataSet ds = connection.GetDataSetUsingCmdObj(objCommand);
-            txtSubEventName.Text = ds.Tables[0].Rows[0]["SubEventName"].ToString();
-            txtRegistrationUrl.Text = ds.Tables[0].Rows[0]["RegistratioinURL"].ToString();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                txtSubEventName.Text = ds.Tables[0].Rows[0]["SubEventName"].ToString();
+                txtRegistrationUrl.Text = ds.Tables[0].Rows[0]["RegistratioinURL"].ToString();
+            }
+            else
+            {
+                txtSubEventName.Text = "There is no sub event";
+            }
         }
 
         //Gets the sub Event location from the subEventID and fills in the text boxes
@@ -184,13 +213,20 @@ namespace AEMS
             objCommand.CommandText = "GetSubEventLocation";
             objCommand.Parameters.AddWithValue("@SubEventID", subEventID);
             DataSet ds = connection.GetDataSetUsingCmdObj(objCommand);
-            txtSubBuildingName.Text = ds.Tables[0].Rows[0]["SubEventBuildingName"].ToString();
-            txtSubCity.Text = ds.Tables[0].Rows[0]["SubEventCity"].ToString();
-            txtSubRoomNumber.Text = ds.Tables[0].Rows[0]["SubEventRoomNumber"].ToString();
-            txtSubState.Text = ds.Tables[0].Rows[0]["SubEventState"].ToString();
-            txtSubStreetAddress1.Text = ds.Tables[0].Rows[0]["SubEventStreetAddress1"].ToString();
-            txtSubStreetAddress2.Text = ds.Tables[0].Rows[0]["SubEventStreetAddress2"].ToString();
-            txtSubZipCode.Text = ds.Tables[0].Rows[0]["SubEventZipCode"].ToString();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                txtSubBuildingName.Text = ds.Tables[0].Rows[0]["SubEventBuildingName"].ToString();
+                txtSubCity.Text = ds.Tables[0].Rows[0]["SubEventCity"].ToString();
+                txtSubRoomNumber.Text = ds.Tables[0].Rows[0]["SubEventRoomNumber"].ToString();
+                txtSubState.Text = ds.Tables[0].Rows[0]["SubEventState"].ToString();
+                txtSubStreetAddress1.Text = ds.Tables[0].Rows[0]["SubEventStreetAddress1"].ToString();
+                txtSubStreetAddress2.Text = ds.Tables[0].Rows[0]["SubEventStreetAddress2"].ToString();
+                txtSubZipCode.Text = ds.Tables[0].Rows[0]["SubEventZipCode"].ToString();
+            }
+            else
+            {
+                txtSubBuildingName.Text = "There is no location for sub event";
+            }
 
         }
 
