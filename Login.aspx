@@ -12,41 +12,73 @@
 #content {
     width: 400px;
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: black;
 }
+    .auto-style1 {
+        color: #000000;
+        height: 6px;
+    }
+    .auto-style2 {
+        font-size: medium;
+    }
 </style>
+
 
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Login Page</title>
+    <style>
+      
+
+        body {
+            background-position: center;
+            
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-
-
-        <div class="container">
-            <br />
-            <div id="content">
-               
-            <div style="padding: 0px; width: 450px; height: 430px; background-color: #FFFFFF;" class="center">
-
+      
+         <div class="form-signin span4"></div>
+              <div class="form-signin span4 text" style="padding: 19px 29px 29px; margin: 3em auto 20px; background-color: #D5D5D5; border: 2px solid #e5e5e5; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05); -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05); box-shadow: 0 1px 2px rgba(0,0,0,.05)">
+               <div class="container">
+         
+                <div class="top-space">
+                    
+                    &nbsp;<br />
+            &nbsp;</div>
+            <div style="padding: 0px; width: 460px; height: 460px; background-color: #FFFFFF;" class="center">
+                <div class="panel panel-default login-panel">
+            <div class="panel-body">
                 <img class="center" src="LOGO.PNG" />
-                <h3 class="auto-style17"><strong>ALUMNI EVENTS&nbsp; MANAGEMENT SYSTEM</strong></h3>
-
-                <h3 class="auto-style18"><strong>USERNAME:</strong></h3>
-                <input type="text" class="form-control" placeholder="Username" required="required" />
-                <h3 class="auto-style18"><strong>PASSWORD:</strong></h3>
-                <input type="password" class="form-control" placeholder="Password" required="required" />
-
-            </div>
-
-                <div class="auto-style19">
-                    <span class="forgot"><a href="https://accounts.temple.edu" onclick="login_openForgotPassword('https://accounts.temple.edu');return false;">Forgot Your Password?</a></span>
+                <h3 class="auto-style1"><strong>ALUMNI EVENTS MANAGEMENT SYSTEM</strong></h3>
+                  <br />
+                <div style="text-align: left;">
+                   <h3 class="auto-style1"><strong>Sign In</strong></h3>
                 </div>
-                <a class="btn btn-primary" id="mToolTip" data-toggle="tooltip" title="Click on Login button to Login into the system." href="Index.aspx" style="font-size: medium; height: 34px; width: 113px;"><strong>Login</strong></a>
+                <br />
+                 <div class="form-group">
+                    <label for="txtUsername"><span class="auto-style2">AccessNet USERNAME</span></label>
+                    <input name="ctl00$cntSubLayout$txtUsername" type="text" id="cntSubLayout_txtUsername" class="form-control" placeholder="Enter AccessNet username" />
+                </div>
+                <div class="form-group">
+                    <label for="txtPassword">PASSWORD</label>
+                    <input name="ctl00$cntSubLayout$txtPassword" type="password" id="cntSubLayout_txtPassword" class="form-control" autocomplete="off" placeholder="Enter password" />
+                    <span id="cntSubLayout_lblError" class="help-block"></span>
+                </div>
+          
+
+               <div style="float: right;">
+                    <a href="http://accounts.temple.edu" target="_blank">Forgot password</a>
+                    <span>&nbsp;&nbsp;&nbsp;</span>
+               <asp:Button ID="btnSubmit" name="ctl00$cntSubLayout$btnLogin" runat="server" class="btn btn-primary" Text="SUBMIT" ForeColor="White" BackColor="#A41E35"   BOLHeight="40px" Width="90px" />
+                </div>
             </div>
+        </div>
+                  </div>
+                   </div>
         </div>
        
     </form>

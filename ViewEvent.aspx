@@ -4,7 +4,7 @@
 <link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" />
 
 <%--For navigation bar color (cherry)--%>
-<link href="navigationBar.css" rel="stylesheet" />
+<link href="navigatioBar.css" rel="stylesheet" />
 
 <%--style sheet reference for footer--%>
 <link type="text/css" rel="stylesheet" href="http://www.temple.edu/sites/temple/files/css/css_OCCCxEXLcOWEYOLZIlp4WFqVS4zcfvLRB6D_bEd9x50.css" media="screen" />
@@ -56,30 +56,37 @@
 <body>
     <form id="form1" runat="server">
         <%--  Code for navigation bar--%>
-        <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">
-                        <img src="templeowl.png" height="75" width="75" /></a>
-                    <%--<a class="navbar-brand" href="#"><img src="TempleT.png" height="50" width="50" /></a>--%>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
-                        <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse navbar-menubuilder">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li><a href="Index.aspx">Home</a>
-                        </li>
-                        <li><a href="CreateEvent.aspx">Create Event</a>
-                        </li>
-                        <li class="active"><a href="ViewEvent.aspx">View/Manage Event</a>
-                        </li>
-                        <li><a href="CreateReport.aspx">Create Report</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">A.E.M.S</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-center">
+              <li><a href="Index.aspx">HOME</a></li>
+              <li><a href="CreateEvent.aspx">CREATE EVENT</a></li>
+              <li><a href="ManageEvent.aspx">MANAGE EVENT</a></li>
+              <li><a href="ViewEvent.aspx">VIEW EVENT</a></li>
+               <li><a href="CreateReport.aspx">CREATE REPORT</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="Login.aspx">LOG IN</a></li>
+                
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+     </div>
         <%-- Code for navigation bar ends--%>
 
         <%--Code for the panel containing search and gridview--%>
@@ -89,7 +96,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="form-inline" style="text-align: left">
-                            <h3 class="panel-title" style="font-weight: bold">Look Up Events</h3>
+                            <h3 class="panel-title" style="font-weight: bold">LOOK UP EVENTS</h3>
                             <asp:Button ID="btnShowAllEvents" runat="server" Text="Show All Events" CssClass="btn-md btn-default pull-right" OnClick="btnShowAllEvents_Click" />
                         </div>
                     </div>
