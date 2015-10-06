@@ -39,7 +39,7 @@ namespace AEMS
             //SaveMainEventOwner();
             //SaveEvent();
             //SaveLocation();
-            //SaveSponsor();
+            SaveSponsor();
             //SavePanelList();
             //SaveSubEventLocation();
             //SaveSubEventSponsor();
@@ -48,7 +48,7 @@ namespace AEMS
             //SaveBudget();
             //SaveMarketingCommunication();
             //SavePreEventLogistics();
-            SavePostEventLogistics();
+            //SavePostEventLogistics();
         }
 
         public void SaveMainEventOwner()
@@ -113,8 +113,9 @@ namespace AEMS
             SaveSponserobjCommand.Parameters.AddWithValue("@SponsorFirstName", txtEventSponsorFirstName.Text);
             SaveSponserobjCommand.Parameters.AddWithValue("@SponsorLastName", txtEventSponsorLastName.Text);
             SaveSponserobjCommand.Parameters.AddWithValue("@CoSponsorFirstName", txtEventCoSponsorFirstName.Text);
-            SaveSponserobjCommand.Parameters.AddWithValue("@UniversityPartnerName", rdbEventUniversityPartner.SelectedIndex);
-            SaveSponserobjCommand.Parameters.AddWithValue("@UniversityPartner", rdbEventCoUniversityPartner.SelectedIndex);
+            SaveSponserobjCommand.Parameters.AddWithValue("@CoSponsorLastName", txtEventCoSponsorLastName.Text);
+            SaveSponserobjCommand.Parameters.AddWithValue("@UniversityPartner", rdbEventUniversityPartner.SelectedIndex);
+            SaveSponserobjCommand.Parameters.AddWithValue("@CoUniversityPartner", rdbEventCoUniversityPartner.SelectedIndex);
             SaveSponserobjCommand.Parameters.AddWithValue("@SponsorEmail", txtEventSponsorEmail.Text);
             SaveSponserobjCommand.Parameters.AddWithValue("@CoSponsorEmail", txtEventCoSponsorEmail.Text);
 
@@ -137,11 +138,11 @@ namespace AEMS
 
         public void SaveSubEventDetails()
         {
-            string strSQL = "CreatePanellist";
+            string strSQL = "CreatePanelist";
             SaveSubEventDetailsCommand.CommandText = strSQL;
             SaveSubEventDetailsCommand.CommandType = CommandType.StoredProcedure;
 
-            SaveSubEventDetailsCommand.Parameters.AddWithValue("@", txtEventPanelistFirstName.Text);
+            SaveSubEventDetailsCommand.Parameters.AddWithValue("@PanelistFirstName", txtEventPanelistFirstName.Text);
             SaveSubEventDetailsCommand.Parameters.AddWithValue("@PanelistEmail", txtEventPanellistEmail.Text);
             SaveSubEventDetailsCommand.Parameters.AddWithValue("@PanelistPhoneNumber", txtEventPanelistPhoneNumber.Text);
             SaveSubEventDetailsCommand.Parameters.AddWithValue("@PanelistLastName", txtEventPanelistLastName.Text);
