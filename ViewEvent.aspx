@@ -150,7 +150,8 @@
                                 <div class="bfh-datepicker" id="enddatepicker">
                                     <input type="text" data-name="edp" />
                                 </div>
-                                &nbsp;&nbsp;
+                                <br />
+
                                 <asp:Button ID="btnDateGo" runat="server" Text="Go" OnClientClick="onSave()" CssClass="btn-sm btn-primary" OnClick="btnDateGo_Click" />
                             </div>
                             <br />
@@ -159,25 +160,14 @@
                         <%--Grid View for the events--%>
                         <asp:GridView ID="gvEvents" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnRowDataBound="gvEvents_RowDataBound" OnRowCommand="gvEvents_RowCommand" OnRowDeleting="gvEvents_RowDeleting" DataKeyNames="EventID" AllowSorting="true" OnSorting="SortGridView">
                             <Columns>
-                                <asp:BoundField HeaderText="EventName" DataField="EventName" SortExpression="EventName" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
-                                <asp:BoundField HeaderText="StartDate" DataField="StartDate" SortExpression="StartDate" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
-                                <asp:BoundField HeaderText="StartTime" DataField="StartTime" SortExpression="StartTime" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
-                                <asp:BoundField HeaderText="OwnerFirstName" DataField="OwnerFirstName" SortExpression="OwnerFirstName" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
-                                <asp:BoundField HeaderText="OwnerLastName" DataField="OwnerLastName" SortExpression="OwnerLastName" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
+                                <asp:BoundField HeaderText="Event Name" DataField="EventName" SortExpression="EventName" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
+                                <asp:BoundField HeaderText="Start Date" DataField="StartDate" SortExpression="StartDate" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
+                                <asp:BoundField HeaderText="Start Time" DataField="StartTime" SortExpression="StartTime" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
+                                <asp:BoundField HeaderText="Owner First Name" DataField="OwnerFirstName" SortExpression="OwnerFirstName" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
+                                <asp:BoundField HeaderText="Owner Last Name" DataField="OwnerLastName" SortExpression="OwnerLastName" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
 
-                                <asp:TemplateField HeaderText="View Detail" ItemStyle-HorizontalAlign="Center" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White">
-                                    <ItemTemplate>
-                                        <asp:LinkButton ID="btnViewEvent" runat="server"><i class="glyphicon glyphicon-eye-open"></i></asp:LinkButton>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Delete" ItemStyle-HorizontalAlign="Center" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White">
-                                    <ItemTemplate>
-                                        <asp:LinkButton ID="btnDeleteEvent" runat="server" OnClick="btnDeleteEvent_Click"><i class="glyphicon glyphicon-trash"></i></asp:LinkButton>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-
-                                <asp:CommandField ShowSelectButton="true" ButtonType="Link" HeaderText="View Detail" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White"></asp:CommandField>
-                                <asp:CommandField ButtonType="Button" ShowDeleteButton="true" HeaderText="Delete" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" />
+                                <asp:CommandField ShowSelectButton="true" ButtonType="Image" SelectImageUrl="~/glyphicons-eye-open.png" ItemStyle-HorizontalAlign="Center" HeaderText="View Detail" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White"></asp:CommandField>
+                                <asp:CommandField ShowSelectButton="true" ButtonType="Image" SelectImageUrl="~/glyphicons-trash.png" ItemStyle-HorizontalAlign="Center" HeaderText="Delete" HeaderStyle-BackColor="#830000" HeaderStyle-ForeColor="White" ></asp:CommandField>
                             </Columns>
                         </asp:GridView>
 

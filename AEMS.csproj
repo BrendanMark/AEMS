@@ -158,6 +158,8 @@
     <Content Include="CreateReport.aspx" />
     <Content Include="css\calendar.css" />
     <Content Include="css\calendar.min.css" />
+    <Content Include="glyphicons-eye-open.png" />
+    <Content Include="glyphicons-trash.png" />
     <Content Include="Index.aspx" />
     <Content Include="jquery-1.11.3.min.js" />
     <Content Include="js\app.js" />

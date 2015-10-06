@@ -152,13 +152,6 @@ namespace AEMS
             }
         }
 
-
-        // Finds out which row was selected and finds the EventID of that particular Event to delete it
-        protected void btnDeleteEvent_Click(object sender, EventArgs e)
-        {
-            String rowIndex = gvEvents.Rows[gvEvents.SelectedIndex].Cells[0].Text;
-        }
-
         protected void gvEvents_RowDeleting(Object sender, System.Web.UI.WebControls.GridViewDeleteEventArgs e)
         {
             // retrieve the row index for which the Update button was clicked

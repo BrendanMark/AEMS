@@ -14,6 +14,9 @@
 	<link rel="stylesheet" href="components/bootstrap3/css/bootstrap-responsive.css">
 	<link rel="stylesheet" href="css/calendar.css">
 
+<%--For navigation bar color (cherry)--%>
+<link href="navigatioBar.css" rel="stylesheet" />
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 
