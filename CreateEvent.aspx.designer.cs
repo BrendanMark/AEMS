@@ -23,6 +23,7 @@ namespace AEMS {
         protected global::System.Web.UI.WebControls.TextBox txtEventCoSponsorFirstName;
         protected global::System.Web.UI.WebControls.RadioButtonList rdbEventUniversityPartner;
         protected global::System.Web.UI.WebControls.TextBox txtEventCoSponsorEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtEventCoSponsorLastName;
         /// <summary>
         /// form1 control.
         /// </summary>
